@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="">
+  <meta name="author" content="xsriy">
+  <title>banner条</title>
+  <!-- JQuery core CSS and JS -->
+  <script src="js/jquery/jquery-3.1.1.js"></script>
+  <!-- Bootstrap core CSS and JS -->
+  <link href="js/bootstrap/bootstrap.css" rel="stylesheet" />
+  <script src="js/bootstrap/bootstrap.js"></script>
+  <script src="js/art-template/template.js"></script>
+</head>
+<style type="text/css">
+body {
+  margin: 0px auto;
+  padding: 0px;
+  display: block;
+  font-family: "Microsoft YaHei" ! important;
+  background-color: #eef2f8;
+}
+
+.banner_list {
+  padding: 21px 19px 21px 14px;
+  height: 200px;
+  width: 1081px;
+}
+
+.banner_block {
+  position: relative;
+  width: 124px;
+  height: 158px;
+  float: left;
+  margin-left: 7px;
+  background-color: #ECECEC;
+}
+
+.tag {
+  position: relative;
+  top: 0px;
+  left: 10px;
+  width: 37px;
+  height: 21px;
+  background: url(images/标签.png) no-repeat;
+  background-position: -165px 0px;
+}
+
+.bottom_title {
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, .4) 90%, rgba(0, 0, 0, .2));
+  background: linear-gradient(to top, rgba(45, 45, 45, .9), rgba(45, 45, 45, .1) 90%, rgba(45, 45, 45, .01));
+  /*background-color: rgba(0, 0, 0, 0.40);*/
+  position: absolute;
+  bottom: 0;
+  line-height: 28px;
+}
+
+.banner_list a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.banner_list a:hover {
+  color: #fde622;
+  text-decoration: none;
+}
+
+.banner_block:visited {
+  transition: box-shadow 1s ease-out, transform 0s ease, -webkit-filter 1s ease-out;
+}
+
+.banner_block:hover {
+	transition: transform 0.5s;
+	transform: translate(0px,-10px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.1);
+}
+
+.banner_block {
+  transition: box-shadow 1s ease-out, transform .1s ease-in, -webkit-filter 1s ease-out;
+}
+</style>
+
+<body>
+  <div id="content">
+    <script id="banner_template" type="text/html">
+      <div class="banner_list">
+        {{each list as value i}}
+        <a href="{{url}}" target="_self">
+          <div class="banner_block" style="background-image: url({{value.imgSrc}})">
+          	<div></div>
+            {{if value.hot}}
+            <div class="tag"></div>
+            {{/if}}
+            <div class="bottom_title">{{value.title}}</div>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+    </script>
+  </div>
+  <script type="text/javascript">
+  var dataSource = [{
+    type: '休闲游戏',
+    list: [{
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
+      title: '原始传奇(休闲)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
+      title: '通天西游(休闲)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
+      title: '剑雨江湖(休闲)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
+      title: '东方世纪(休闲)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
+      title: '天谕(休闲)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
+      title: '征途(休闲)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
+      title: '原始传奇(休闲)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
+      title: '棋逢对手(休闲)'
+    }]
+  }, {
+    type: '网络游戏',
+    list: [{
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
+      title: '原始传奇(网络)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
+      title: '通天西游(网络)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
+      title: '剑雨江湖(网络)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
+      title: '东方世纪(网络)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
+      title: '天谕(网络)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
+      title: '征途(网络)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
+      title: '原始传奇(网络)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
+      title: '棋逢对手(网络)'
+    }]
+  }, {
+    type: '单机游戏',
+    list: [{
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
+      title: '原始传奇(单机)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
+      title: '通天西游(单机)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
+      title: '剑雨江湖(单机)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
+      title: '东方世纪(单机)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
+      title: '天谕(单机)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
+      title: '征途(单机)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
+      title: '原始传奇(单机)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
+      title: '棋逢对手(单机)'
+    }]
+  }, {
+    type: '默认',
+    list: [{
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
+      title: '原始传奇(默认)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
+      title: '通天西游(默认)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
+      title: '剑雨江湖(默认)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
+      title: '东方世纪(默认)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
+      title: '天谕(默认)'
+    }, {
+      url: '',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
+      title: '征途(默认)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
+      title: '原始传奇(默认)'
+    }, {
+      url: '',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
+      title: '棋逢对手(默认)'
+    }]
+  }];
+  var data = {
+    type: "",
+    list: []
+  };
+  $(document).ready(function() {
+    var _fndname = decodeURI(getParams("class"));
+    if (_fndname == 'undefined') _fndname = '默认';
+    $.each(dataSource, function(i, o) {
+      if (o.type == _fndname) {
+        data = o;
+        return false;
+      }
+    })
+    var html = template('banner_template', data);
+    document.getElementById('content').innerHTML = html;
+  });
+
+  function getParams(fndname) {
+    var url = location.search; //一般的查询
+    var query = url.substr(url.indexOf("?") + 1);
+    var pairs = query.split("&"); //在逗号处断开
+    for (var i = 0; i < pairs.length; i++) {
+      var pos = pairs[i].indexOf('='); //查找name=value
+      if (pos == -1)
+        continue; //如果没有找到就跳过
+      var argname = pairs[i].substring(0, pos); //提取name
+      var value = pairs[i].substring(pos + 1); //提取value
+      if (argname == fndname)
+        return value;
+    }
+  }
+  </script>
+</body>
+
+</html>
