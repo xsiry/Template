@@ -14,7 +14,7 @@ function actionUrl() {
     }
   })
   var html = template('banner_template', data);
-  document.getElementById('content').innerHTML = html;
+  $('.content').html(html);
 }
 // url传参数变化类别
 function getParams(fndname) {

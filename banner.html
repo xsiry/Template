@@ -15,13 +15,14 @@
 </head>
 
 <body>
-  <div id="content">
+  <div class="content">
     <script id="banner_template" type="text/html">
       <div class="banner_list">
         {{each list as ban i}}
-        <a href="{{ban.url}}" target="_self">
+        <a class="up_a" href="{{ban.url}}" target="_self" number="{{ban.number}}">
           <div class="banner_block">
-            <img src="{{ban.imgSrc}}" /> {{if ban.hot}}
+            <img class="up_img" src="{{ban.imgSrc}}" alt="{{ban.title}}" number="{{ban.number}}">
+            {{if ban.hot}}
             <div class="tag"></div>
             {{/if}}
             <div class="bottom_title">{{ban.title}}</div>
@@ -35,48 +36,57 @@
   <script type="text/javascript" src="js/jquery/jquery-3.1.1.js"></script>
   <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
   <script type="text/javascript" src="js/art-template/template.js"></script>
+  <script type="text/javascript" src="js/upload.js"></script>
   <script type="text/javascript" src="js/banner.js"></script>
   <script type="text/javascript">
   // 数据源
   var dataSource = [{
     type: '休闲游戏',
     list: [{
-      url: '',
+      url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html',
+      number: '111',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
       title: '原始传奇(休闲)'
     }, {
       url: '',
+      number: '222',
       hot: false,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
       title: '通天西游(休闲)'
     }, {
       url: '',
+      number: '333',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
       title: '剑雨江湖(休闲)'
     }, {
       url: '',
+      number: '444',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
       title: '东方世纪(休闲)'
     }, {
       url: '',
+      number: '555',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
       title: '天谕(休闲)'
     }, {
       url: '',
+      number: '666',
       hot: false,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
       title: '征途(休闲)'
     }, {
       url: '',
+      number: '777',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
       title: '原始传奇(休闲)'
     }, {
       url: '',
+      number: '888',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
       title: '棋逢对手(休闲)'
@@ -84,128 +94,101 @@
   }, {
     type: '网络游戏',
     list: [{
-      url: '',
+      url: 'javascript:void(0)',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
       title: '原始传奇(网络)'
     }, {
       url: '',
+      number: 'B7C7268E6F50|5256E9BF6B1A|81C626D7CA1C',
       hot: false,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
       title: '通天西游(网络)'
     }, {
       url: '',
+      number: 'B7C7268E6F50|5256E9BF6B1A|759BCECB13EA',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
       title: '剑雨江湖(网络)'
     }, {
       url: '',
+      number: 'B7C7268E6F50|5256E9BF6B1A|8EC9D28252DC',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
       title: '东方世纪(网络)'
     }, {
       url: '',
+      number: 'B7C7268E6F50|5256E9BF6B1A|02AA832AEA6F',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
       title: '天谕(网络)'
     }, {
       url: '',
+      number: 'B7C7268E6F50|5256E9BF6B1A|8644FAD0FBF0',
       hot: false,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
       title: '征途(网络)'
     }, {
       url: '',
+      number: 'B7C7268E6F50|5256E9BF6B1A|D396D2AF35FA',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
       title: '原始传奇(网络)'
     }, {
       url: '',
+      number: 'B7C7268E6F50|5256E9BF6B1A|16CEDDDE85B3',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
       title: '棋逢对手(网络)'
     }]
   }, {
-    type: '单机游戏',
-    list: [{
-      url: '',
-      hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
-      title: '原始传奇(单机)'
-    }, {
-      url: '',
-      hot: false,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
-      title: '通天西游(单机)'
-    }, {
-      url: '',
-      hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
-      title: '剑雨江湖(单机)'
-    }, {
-      url: '',
-      hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
-      title: '东方世纪(单机)'
-    }, {
-      url: '',
-      hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
-      title: '天谕(单机)'
-    }, {
-      url: '',
-      hot: false,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
-      title: '征途(单机)'
-    }, {
-      url: '',
-      hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
-      title: '原始传奇(单机)'
-    }, {
-      url: '',
-      hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
-      title: '棋逢对手(单机)'
-    }]
-  }, {
     type: '默认',
     list: [{
-      url: '',
+      url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html',
+      number: '1',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
       title: '原始传奇(默认)'
     }, {
       url: '',
+      number: '2',
       hot: false,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
       title: '通天西游(默认)'
     }, {
       url: '',
+      number: '3',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
       title: '剑雨江湖(默认)'
     }, {
       url: '',
+      number: '4',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
       title: '东方世纪(默认)'
     }, {
       url: '',
+      number: '5',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/d29dakv9k1xy9p9t1474957822.jpg/220',
       title: '天谕(默认)'
     }, {
       url: '',
+      number: '6',
       hot: false,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
       title: '征途(默认)'
     }, {
       url: '',
+      number: '7',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
       title: '原始传奇(默认)'
     }, {
       url: '',
+      number: '8',
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
       title: '棋逢对手(默认)'
@@ -215,6 +198,7 @@
 
   $(document).ready(function() {
     actionUrl();
+    loadUpload();
   });
   </script>
 </body>
