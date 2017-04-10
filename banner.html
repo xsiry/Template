@@ -15,17 +15,39 @@
 </head>
 
 <body>
+<!--
+  1、  a: 广告上报地址 如:http://uad.nmenu.cn/adst.jsp
+  2、  b: 广告展现方式, 0随机,1轮播。
+  3、  c: 广告文件类型; JPG, GIF ,SWF, JS代码, 外连URL
+  4、  d: 点击地址
+  5、  e: 运行游戏的编号
+  6、  f: 延时显示时间秒, 0为不延时显示。
+  7、  g: 定时关闭时间秒。0为不定时关闭。
+  8、  h: 点击广告时关闭广告，0为不关闭，1为要关闭。
+  9、  i: 窗体显示方式， 0普通，1最顶层，2隐藏。
+  10、 j:窗体显示位置, 0,左上 1,左下 2,居中 3,右上 4,右下 X,Y: 自定义。
+  11、 k:窗体大小, w,h(宽,高)。
+  12、 l:广告包编号。
+  13、 m:广告位编号。
+  14、 n:广告编号。
+  15、 o:当前展现的广告索引号。
+-->
+  <input id="a" name="a" type="hidden" value="http://uad.nmenu.cn/adst.jsp" />
+  <input id="l" name="l" type="hidden" value="B7C7268E6F50" />
+  <input id="m" name="m" type="hidden" value="5256E9BF6B1A" />
+  <input id="n" name="n" type="hidden" value="F14E559C5CD0,759BCECB13EA,81C626D7CA1C,8EC9D28252DC,02AA832AEA6F,8644FAD0FBF0,D396D2AF35FA,16CEDDDE85B3,CD6673B014FD,4CF3D8F88A21,849C870CC239,525778751ED8,721A63E67EDC,94BB39A48765,8705E90CE9CA,114C1D07E4B3,CD6673B014FD,4CF3D8F88A21,849C870CC239,525778751ED8,721A63E67EDC,94BB39A48765,8705E90CE9CA,114C1D07E4B3,CD6673B014FD,4CF3D8F88A21,849C870CC239,525778751ED8,721A63E67EDC,94BB39A48765,8705E90CE9CA,114C1D07E4B3,CD6673B014FD,4CF3D8F88A21,849C870CC239,525778751ED8,721A63E67EDC,94BB39A48765,8705E90CE9CA,114C1D07E4B3,CD6673B014FD,4CF3D8F88A21,849C870CC239,525778751ED8,721A63E67EDC,94BB39A48765,8705E90CE9CA,114C1D07E4B3,CD6673B014FD,4CF3D8F88A21,849C870CC239,525778751ED8,721A63E67EDC,94BB39A48765,8705E90CE9CA,114C1D07E4B3,CD6673B014FD,4CF3D8F88A21,849C870CC239,525778751ED8,721A63E67EDC,94BB39A48765,8705E90CE9CA,114C1D07E4B3" />
+
   <div id="content">
     <script id="banner_template" type="text/html">
       <div class="banner_list">
-        {{each list as value i}}
-        <a href="{{url}}" target="_self">
-          <div class="banner_block" style="background-image: url({{value.imgSrc}})">
+        {{each list as ban i}}
+        <a href="{{ban.url}}" target="_self">
+          <div class="banner_block" style="background-image: url({{ban.imgSrc}})">
             <div></div>
-            {{if value.hot}}
+            {{if ban.hot}}
             <div class="tag"></div>
             {{/if}}
-            <div class="bottom_title">{{value.title}}</div>
+            <div class="bottom_title">{{ban.title}}</div>
           </div>
         </a>
         {{/each}}
