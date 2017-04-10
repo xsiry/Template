@@ -21,8 +21,7 @@
         {{each list as ban i}}
         <a href="{{ban.url}}" target="_self">
           <div class="banner_block">
-            <img src="{{ban.imgSrc}}" />
-            {{if ban.hot}}
+            <img src="{{ban.imgSrc}}" /> {{if ban.hot}}
             <div class="tag"></div>
             {{/if}}
             <div class="bottom_title">{{ban.title}}</div>
@@ -217,8 +216,6 @@
   $(document).ready(function() {
     actionUrl();
   });
-
-
   </script>
 </body>
 

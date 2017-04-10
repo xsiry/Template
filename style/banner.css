@@ -65,8 +65,8 @@ body {
 }
 
 .banner_block:hover {
-	transition: transform 0.5s;
-	transform: translate(0px,-10px);
+  transition: transform 0.5s;
+  transform: translate(0px, -10px);
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.1);
 }
