@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+body {
+  margin: 0px auto;
+  padding: 0px;
+  display: block;
+  font-family: "Microsoft YaHei" ! important;
+  background-color: #eef2f8;
+}
+
+.banner_list {
+  padding: 21px 19px 21px 14px;
+  height: 200px;
+  width: 1081px;
+}
+
+.banner_block {
+  position: relative;
+  width: 124px;
+  height: 158px;
+  float: left;
+  margin-left: 7px;
+  background-color: #ECECEC;
+}
+
+.tag {
+  position: relative;
+  top: 0px;
+  left: 10px;
+  width: 37px;
+  height: 21px;
+  background: url(../images/标签.png) no-repeat;
+  background-position: -165px 0px;
+}
+
+.bottom_title {
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, .4) 90%, rgba(0, 0, 0, .2));
+  background: linear-gradient(to top, rgba(45, 45, 45, .9), rgba(45, 45, 45, .1) 90%, rgba(45, 45, 45, .01));
+  /*background-color: rgba(0, 0, 0, 0.40);*/
+  position: absolute;
+  bottom: 0;
+  line-height: 28px;
+}
+
+.banner_list a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.banner_list a:hover {
+  color: #fde622;
+  text-decoration: none;
+}
+
+.banner_block:visited {
+  transition: box-shadow 1s ease-out, transform 0s ease, -webkit-filter 1s ease-out;
+}
+
+.banner_block:hover {
+	transition: transform 0.5s;
+	transform: translate(0px,-10px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.1);
+}
+
+.banner_block {
+  transition: box-shadow 1s ease-out, transform .1s ease-in, -webkit-filter 1s ease-out;
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" style="overflow:hidden;">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -9,84 +9,10 @@
   <meta name="description" content="">
   <meta name="author" content="xsriy">
   <title>banner条</title>
-  <!-- JQuery core CSS and JS -->
-  <script src="js/jquery/jquery-3.1.1.js"></script>
-  <!-- Bootstrap core CSS and JS -->
-  <link href="js/bootstrap/bootstrap.css" rel="stylesheet" />
-  <script src="js/bootstrap/bootstrap.js"></script>
-  <script src="js/art-template/template.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="style/banner.css">
 </head>
-<style type="text/css">
-body {
-  margin: 0px auto;
-  padding: 0px;
-  display: block;
-  font-family: "Microsoft YaHei" ! important;
-  background-color: #eef2f8;
-}
-
-.banner_list {
-  padding: 21px 19px 21px 14px;
-  height: 200px;
-  width: 1081px;
-}
-
-.banner_block {
-  position: relative;
-  width: 124px;
-  height: 158px;
-  float: left;
-  margin-left: 7px;
-  background-color: #ECECEC;
-}
-
-.tag {
-  position: relative;
-  top: 0px;
-  left: 10px;
-  width: 37px;
-  height: 21px;
-  background: url(images/标签.png) no-repeat;
-  background-position: -165px 0px;
-}
-
-.bottom_title {
-  font-size: 14px;
-  text-align: center;
-  width: 100%;
-  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, .4) 90%, rgba(0, 0, 0, .2));
-  background: linear-gradient(to top, rgba(45, 45, 45, .9), rgba(45, 45, 45, .1) 90%, rgba(45, 45, 45, .01));
-  /*background-color: rgba(0, 0, 0, 0.40);*/
-  position: absolute;
-  bottom: 0;
-  line-height: 28px;
-}
-
-.banner_list a {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-.banner_list a:hover {
-  color: #fde622;
-  text-decoration: none;
-}
-
-.banner_block:visited {
-  transition: box-shadow 1s ease-out, transform 0s ease, -webkit-filter 1s ease-out;
-}
-
-.banner_block:hover {
-	transition: transform 0.5s;
-	transform: translate(0px,-10px);
-  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.1);
-}
-
-.banner_block {
-  transition: box-shadow 1s ease-out, transform .1s ease-in, -webkit-filter 1s ease-out;
-}
-</style>
 
 <body>
   <div id="content">
@@ -95,7 +21,7 @@ body {
         {{each list as value i}}
         <a href="{{url}}" target="_self">
           <div class="banner_block" style="background-image: url({{value.imgSrc}})">
-          	<div></div>
+            <div></div>
             {{if value.hot}}
             <div class="tag"></div>
             {{/if}}
@@ -106,7 +32,12 @@ body {
       </div>
     </script>
   </div>
+  <!-- JS -->
+  <script type="text/javascript" src="js/jquery/jquery-3.1.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+  <script type="text/javascript" src="js/art-template/template.js"></script>
   <script type="text/javascript">
+  // 数据源
   var dataSource = [{
     type: '休闲游戏',
     list: [{
@@ -280,10 +211,13 @@ body {
       title: '棋逢对手(默认)'
     }]
   }];
+
+  // 初始化数据对象
   var data = {
     type: "",
     list: []
   };
+
   $(document).ready(function() {
     var _fndname = decodeURI(getParams("class"));
     if (_fndname == 'undefined') _fndname = '默认';
@@ -297,6 +231,7 @@ body {
     document.getElementById('content').innerHTML = html;
   });
 
+  // url传参数变化类别
   function getParams(fndname) {
     var url = location.search; //一般的查询
     var query = url.substr(url.indexOf("?") + 1);
