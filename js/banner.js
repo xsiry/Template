@@ -1,3 +1,8 @@
+$(document).ready(function() {
+  actionUrl();
+  loadUpload();
+});
+
 function actionUrl() {
   // 初始化数据对象
   var data = {

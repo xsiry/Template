@@ -7,18 +7,18 @@ body {
 }
 
 .banner_list {
-  height: 158px;
-  width: 1041px;
-  background-color: #eef2f8;
+  background-color: #303030;
+  height: 200px;
+  width: 622px;
 }
 
 .banner_block {
   position: relative;
-  width: 124px;
-  height: 150px;
+  width: 148px;
+  height: 193px;
   float: left;
-  margin-left: 7px;
-  margin-top: 8px;
+  margin-left: 8px;
+  margin-top: 7px;
   background-color: #ECECEC;
   transition: box-shadow 1s ease-out, transform .1s ease-in, -webkit-filter 1s ease-out;
 }
@@ -28,16 +28,16 @@ body {
 }
 
 .banner_block:hover {
-  transition: transform 0.5s;
-  transform: translate(0px, -8px);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  transition:transform 0.5s;
+  transform: translate(0px, -5px);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
   -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.1);
 }
 
 .banner_block img {
   position: relative;
-  width: 124px;
-  height: 150px;
+  width: 148px;
+  height: 193px;
 }
 
 .tag {
