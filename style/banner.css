@@ -22,8 +22,14 @@ body {
   background-color: #ECECEC;
 }
 
-.tag {
+.banner_block img {
   position: relative;
+  width: 124px;
+  height: 158px;
+}
+
+.tag {
+  position: absolute;
   top: 0px;
   left: 10px;
   width: 37px;
