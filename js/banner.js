@@ -18,8 +18,13 @@ function actionUrl() {
       return false;
     }
   })
+
   var html = template('banner_template', data);
   $('.content').html(html);
+
+  // 配置显示尺寸
+  $('.banner_list').css('height', $('#height').val() + 'px');
+  $('.banner_block').css('width', $('#width').val() + 'px');
 }
 // url传参数变化类别
 function getParams(fndname) {
