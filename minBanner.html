@@ -11,10 +11,13 @@
   <title>minBanner条</title>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="style/minBanner.css">
+  <link rel="stylesheet" type="text/css" href="style/banner.css">
 </head>
 
 <body>
+  <!-- 根据客户端配置banner条尺寸 -->
+  <input id="width" name="width" type="hidden" value="148" />
+  <input id="height" name="height" type="hidden" value="200" />
   <div class="content">
     <script id="banner_template" type="text/html">
       <div class="banner_list">
@@ -38,7 +41,7 @@
   <script type="text/javascript" src="js/art-template/template.js"></script>
   <script type="text/javascript">
   // 数据源
-  var dataSource = [{
+  var templateSource = [{
     type: '休闲游戏',
     list: [{
       url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html',

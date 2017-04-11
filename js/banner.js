@@ -8,11 +8,10 @@ function actionUrl() {
   var data = {
     type: "",
     list: []
-  };
-
+  }
   var _fndname = decodeURI(getParams("class"));
   if (_fndname == 'undefined') _fndname = '默认';
-  $.each(dataSource, function(i, o) {
+  $.each(templateSource, function(i, o) {
     if (o.type == _fndname) {
       data = o;
       return false;
@@ -22,9 +21,9 @@ function actionUrl() {
   var html = template('banner_template', data);
   $('.content').html(html);
 
-  // 配置显示尺寸
-  $('.banner_list').css('height', $('#height').val() + 'px');
-  $('.banner_block').css('width', $('#width').val() + 'px');
+  // 根据可视尺寸，自适应宽度
+  var height = $(window).height();
+  $('.banner_list').css('height', height + 'px');
 }
 // url传参数变化类别
 function getParams(fndname) {

@@ -15,16 +15,12 @@
 </head>
 
 <body>
-  <!-- 根据客户端配置banner条尺寸 -->
-  <input id="width" name="width" type="hidden" value="124" />
-  <input id="height" name="height" type="hidden" value="158" />
-
   <div class="content">
     <script id="banner_template" type="text/html">
       <div class="banner_list">
         {{each list as ban i}}
         <a class="up_a" href="{{ban.url}}" target="_self" number="{{ban.number}}">
-          <div class="banner_block" {{if i == 0}} style="margin-left:0px;" {{/if}}>
+          <div class="banner_block" style="{{if i==0 }}margin-left:0px;{{/if}}">
             <img class="up_img" src="{{ban.imgSrc}}" alt="{{ban.title}}" number="{{ban.number}}">
             {{if ban.hot}}
             <div class="tag"></div>
@@ -42,7 +38,7 @@
   <script type="text/javascript" src="js/art-template/template.js"></script>
   <script type="text/javascript">
   // 数据源
-  var dataSource = [{
+  var templateSource = [{
     type: '休闲游戏',
     list: [{
       url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html',
@@ -194,6 +190,24 @@
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
       title: '棋逢对手(默认)'
+    }, {
+      url: '',
+      number: '6',
+      hot: false,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/q8742fxhp6pj7zvt1473751828.jpg/220',
+      title: '征途2(默认)'
+    }, {
+      url: '',
+      number: '7',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53el1qwq1gnm5fnt1456916414.jpg/220',
+      title: '原始传奇2(默认)'
+    }, {
+      url: '',
+      number: '8',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
+      title: '棋逢对手2(默认)'
     }]
   }];
   </script>
