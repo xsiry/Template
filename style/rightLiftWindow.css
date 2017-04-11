@@ -35,6 +35,7 @@ div.content>a>div>img {
   padding-right: 5px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
 }
 
 .close_win>a {

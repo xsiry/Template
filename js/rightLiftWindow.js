@@ -15,7 +15,7 @@ function init() {
     width: width,
     height: height
   };
-  var html = template('banner_template', templateSource);
+  var html = template('lift_win_template', templateSource);
   $('.content').html(html);
   interval = setInterval(queueingArr, sec * 1000);
 
@@ -25,7 +25,7 @@ function init() {
   $('.progress_bottom_win').css('-ms-animation', 'progress_bottom_act ' + sec + 's infinite linear');
   $('.progress_bottom_win').css('animation', 'progress_bottom_act ' + sec + 's infinite linear');
 
-  $('.img_a').hover(function() {
+  $('.lift_win').hover(function() {
     clearInterval(interval);
     $('.progress_bottom_win').css('-webkit-animation', '');
     $('.progress_bottom_win').css('-moz-animation', '');
