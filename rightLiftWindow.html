@@ -42,8 +42,8 @@
           </a>
         </div>
         {{each list as obj i}}
-        <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; {{/if}}" target="_self" number="{{obj.number}}">
-          <img class="up_img" src="{{obj.imgSrc}}" alt="{{obj.title}}" number="{{obj.number}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
+        <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self" number="{{obj.number}}">
+          <img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" number="{{obj.number}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
         </a>
         {{/each}}
       </div>

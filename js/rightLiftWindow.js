@@ -1,5 +1,5 @@
 var num = 0;
-var sec = 3;
+var sec = 6;
 var interval;
 
 
@@ -46,5 +46,7 @@ function queueingArr() {
   num++;
   if (num >= templateSource.list.length) num = 0;
   $('.img_a').hide();
+  $('.img_a').css('-webkit-animation', '');
   $('.img_a_' + num).show();
+  $('.img_a_' + num).css('-webkit-animation', 'img_act 1s linear forwards');
 }

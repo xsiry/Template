@@ -64,6 +64,12 @@ div.content>a>div>img {
   width: 0;
 }
 
+@-webkit-keyframes img_act {
+  0% { opacity: 0; -webkit-filter: saturate(1) contrast(1) brightness(1);}
+  50% { opacity: 0.5; -webkit-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
+  100% { opacity: 1; -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
+}
+
 @-webkit-keyframes progress_bottom_act {
   0% { width: 0%;}
   100% { width: 100%;}
