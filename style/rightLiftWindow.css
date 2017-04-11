@@ -1,0 +1,87 @@
+@CHARSET "UTF-8";
+body {
+  margin: 0px auto;
+  padding: 0px;
+  display: block;
+  font-family: "Microsoft YaHei" ! important;
+}
+
+.content {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #303030;
+  border-radius: 2px;
+}
+
+div.content>a>div>img {
+  border-radius: 2px;
+}
+
+.lift_win {
+  position: relative;
+}
+
+.img_a {
+  display: none;
+}
+
+.close_win {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 14px;
+  padding-right: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.close_win>a {
+  color: #FFFFFF;
+}
+
+.close_win>a:hover {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.svg_icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  vertical-align: -6px;
+  pointer-events: none;
+  fill: currentColor
+}
+
+.progress_bottom_win {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #FF0000;
+  height: 2px;
+  width: 0;
+}
+
+@-webkit-keyframes progress_bottom_act {
+  0% { width: 0%;}
+  100% { width: 100%;}
+}
+
+@-moz-keyframes progress_bottom_act {
+  0% { width: 0%;}
+  100% { width: 100%;}
+}
+@-o-keyframes progress_bottom_act {
+  0% { width: 0%;}
+  100% { width: 100%;}
+}
+@-ms-keyframes progress_bottom_act{
+  0% { width: 0%;}
+  100% { width: 100%;}
+}
+@keyframes progress_bottom_act {
+  0% { width: 0%;}
+  100% { width: 100%;}
+}
