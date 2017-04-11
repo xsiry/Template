@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="overflow:hidden;">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<meta name="description" content="">
+	<meta name="author" content="xsiry">
+	<title>topPopup</title>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="style/topPopup.css" />
+
+	<svg class="txp_svg_sprite txp_svg_sprite_head" display="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+		<symbol id="arrow_svg">
+			<path d="M384 556l0-64 64 0 0 64-64 0zM448 620l0-64 64 0 0 64-64 0zM512 684l0-64 64 0 0 64-64 0zM576 748l0-64 64 0 0 64-64 0zM576 364l0-64 64 0 0 64-64 0zM448 492l0-64 64 0 0 64-64 0zM512 428l0-64 64 0 0 64-64 0z" p-id="7225" fill="#ffffff"></path>
+		</symbol>
+	</svg>
+</head>
+
+<body>
+	<div class="content">
+		<script id="top_popup_template" type="text/html">
+			<div class="top_popup">
+				<div class="left_btn">
+					<svg class="svg_icon" viewBox="0 0 1024 1024">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow_svg"></use>
+					</svg>
+				</div>
+				<div class="right_btn">
+					<svg class="svg_icon" viewBox="0 0 1024 1024" transform="rotate(180, 0 0)">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow_svg"></use>
+					</svg>
+				</div>
+				<div class="focus-num"><span class="current">1</span>/<span class="num">0</span></div>
+				{{each list as obj i}}
+				<a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self" number="{{obj.number}}">
+					<img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" number="{{obj.number}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
+					<div class="i_title">{{obj.title}}</div>
+				</a>
+				{{/each}}
+			</div>
+			<div class="progress_bottom_win"></div>
+		</script>
+	</div>
+	<!-- JS -->
+	<script type="text/javascript" src="js/jquery/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+	<script type="text/javascript" src="js/art-template/template.js"></script>
+	<script type="text/javascript">
+	// 数据源
+	var templateSource = {
+		list: [{
+			url: '',
+			imgSrc: './source/t1.jpg',
+			number: '',
+			title: '《雷神1》首曝预告：锤子碎了、大战绿巨人'
+		}, {
+			url: '',
+			imgSrc: './source/t2.jpg',
+			number: '',
+			title: '《雷神2》首曝预告：锤子碎了、大战绿巨人'
+		}, {
+			url: '',
+			imgSrc: './source/t3.jpg',
+			number: '',
+			title: '《雷神3》首曝预告：锤子碎了、大战绿巨人'
+		}, {
+			url: '',
+			imgSrc: './source/t4.jpg',
+			number: '',
+			title: '《雷神4》首曝预告：锤子碎了、大战绿巨人'
+		}, {
+			url: '',
+			imgSrc: './source/t5.jpg',
+			number: '',
+			title: '《雷神5》首曝预告：锤子碎了、大战绿巨人'
+		}]
+	};
+
+	</script>
+	<script type="text/javascript" src="js/topPopup.js"></script>
+	<script type="text/javascript" src="js/upload.js"></script>
+</body>
+
+</html>
