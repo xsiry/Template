@@ -15,10 +15,9 @@ body {
 .banner_block {
   position: relative;
   width: 124px;
-  height: 150px;
+  height: 158px;
   float: left;
   margin-left: 7px;
-  margin-top: 8px;
   background-color: #ECECEC;
   transition: box-shadow 1s ease-out, transform .1s ease-in, -webkit-filter 1s ease-out;
 }
@@ -28,16 +27,24 @@ body {
 }
 
 .banner_block:hover {
-  transition: transform 0.5s;
-  transform: translate(0px, -8px);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-  -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.1);
+  -webkit-animation: tada 4s infinite linear;
+  -webkit-transform-style: preserve-3d;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.9);
+  -webkit-filter: saturate(1.3) contrast(1.3) brightness(1.2);
+}
+
+@-webkit-keyframes tada{
+0%{-webkit-transform:scale(0.95) rotate3d(0,1,0,0); }
+25%{-webkit-transform:scale(0.95) rotate3d(0,1,0,20deg); }
+50%{-webkit-transform:scale(0.95) rotate3d(0,1,0,0); }
+75%{-webkit-transform:scale(0.95) rotate3d(0,1,0,-20deg); }
+100%{-webkit-transform:scale(0.95) rotate3d(0,1,0,0);}
 }
 
 .banner_block img {
   position: relative;
   width: 124px;
-  height: 150px;
+  height: 158px;
 }
 
 .tag {
