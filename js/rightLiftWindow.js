@@ -47,6 +47,14 @@ function queueingArr() {
   if (num >= templateSource.list.length) num = 0;
   $('.img_a').hide();
   $('.img_a').css('-webkit-animation', '');
+  $('.img_a').css('-moz-animation', '');
+  $('.img_a').css('-o-animation', '');
+  $('.img_a').css('-ms-animation', '');
+  $('.img_a').css('animation', '');
   $('.img_a_' + num).show();
   $('.img_a_' + num).css('-webkit-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('-moz-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('-o-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('-ms-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('animation', 'img_act 1s linear forwards');
 }

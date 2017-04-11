@@ -49,30 +49,34 @@ function init() {
   $('.left_btn').on('click', function() {
     num = num - 1;
     if (num < 0) num = templateSource.list.length - 1;
-    $('.img_a').hide();
-    $('.img_a').css('-webkit-animation', '');
-    $('.img_a_' + num).show();
-    $('.img_a_' + num).css('-webkit-animation', 'img_act 1s linear forwards');
-    $('.current').text(num + 1);
+    choseImg(num);
   })
 
   $('.right_btn').on('click', function() {
     num = num + 1;
     if (num >= templateSource.list.length) num = 0;
-    $('.img_a').hide();
-    $('.img_a').css('-webkit-animation', '');
-    $('.img_a_' + num).show();
-    $('.img_a_' + num).css('-webkit-animation', 'img_act 1s linear forwards');
-    $('.current').text(num + 1);
+    choseImg(num);
   })
 }
 
 function queueingArr() {
   num++;
   if (num >= templateSource.list.length) num = 0;
+  choseImg(num);
+}
+
+function choseImg(num) {
   $('.img_a').hide();
   $('.img_a').css('-webkit-animation', '');
+  $('.img_a').css('-moz-animation', '');
+  $('.img_a').css('-o-animation', '');
+  $('.img_a').css('-ms-animation', '');
+  $('.img_a').css('animation', '');
   $('.img_a_' + num).show();
   $('.img_a_' + num).css('-webkit-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('-moz-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('-o-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('-ms-animation', 'img_act 1s linear forwards');
+  $('.img_a_' + num).css('animation', 'img_act 1s linear forwards');
   $('.current').text(num + 1);
 }
