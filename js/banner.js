@@ -23,6 +23,20 @@ function actionUrl() {
 
   // 根据可视尺寸，自适应宽度
   var height = $(window).height();
+  var width = $(window).width();
+  var maxWidth = $('.max').val().split('*')[0];
+  var maxCount = $('.max').val().split('*')[2];
+  var normalWidth = $('.normal').val().split('*')[0];
+  var normalCount = $('.normal').val().split('*')[2];
+  var minWidth = $('.min').val().split('*')[0];
+  var minCount = $('.min').val().split('*')[2];
+  var showLevel = {$maxWidth: maxCount, normalWidth: normalCount, minWidth: minCount};
+  var count = 0;
+  if (width == maxWidth) count = maxCount;
+  if (width == normalWidth) count = normalCount;
+  if (width == minWidth) count = minCount;
+
+  $('.banner_block').css('width', (width-(count-1)*7)/count);
   $('.banner_list').css('height', height + 'px');
 }
 // url传参数变化类别

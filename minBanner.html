@@ -20,6 +20,11 @@
   <input id="height" name="height" type="hidden" value="200" />
   <div class="content">
     <script id="banner_template" type="text/html">
+      <!-- 尺寸规则 宽度*高度*个数 -->
+      <input type="hidden" class="max" name="max" value="1491*198*6">
+      <input type="hidden" class="normal" name="normal" value="1281*174*5">
+      <input type="hidden" class="min" name="min" value="1024*150*4">
+
       <div class="banner_list">
         {{each list as ban i}}
         <a class="up_a" href="{{ban.url}}" target="_self" number="{{ban.number}}">

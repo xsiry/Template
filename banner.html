@@ -17,6 +17,11 @@
 <body>
   <div class="content">
     <script id="banner_template" type="text/html">
+      <!-- 尺寸规则 宽度*高度*个数 -->
+      <input type="hidden" class="max" name="max" value="1491*198*12">
+      <input type="hidden" class="normal" name="normal" value="1281*174*10">
+      <input type="hidden" class="min" name="min" value="1024*150*8">
+
       <div class="banner_list">
         {{each list as ban i}}
         <a class="up_a" href="{{ban.url}}" target="_self" number="{{ban.number}}">
@@ -207,6 +212,12 @@
       hot: true,
       imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
       title: '棋逢对手2(默认)'
+    }, {
+      url: '',
+      number: '9',
+      hot: true,
+      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/tfdih8i0jypj7da1491375982/220',
+      title: '棋逢对手3(默认)'
     }]
   }];
   </script>
