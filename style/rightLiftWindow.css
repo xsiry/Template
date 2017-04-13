@@ -1,8 +1,10 @@
 @CHARSET "UTF-8";
-body {
+html, body {
   margin: 0px auto;
   padding: 0px;
   display: block;
+  width: 100%;
+  height: 100%;
   font-family: "Microsoft YaHei" ! important;
 }
 
@@ -21,6 +23,8 @@ div.content>a>div>img {
 
 .lift_win {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .img_a {
@@ -35,7 +39,7 @@ div.content>a>div>img {
   padding-right: 5px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  z-index: 5;
 }
 
 .close_win>a {
@@ -63,6 +67,20 @@ div.content>a>div>img {
   background-color: #FF0000;
   height: 2px;
   width: 0;
+}
+
+.my_img {
+  display: none;
+}
+.my_flash {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.my_iframe {
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 
 @-webkit-keyframes img_act {

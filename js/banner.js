@@ -30,7 +30,7 @@ function actionUrl() {
   var normalCount = $('.normal').val().split('*')[2];
   var minWidth = $('.min').val().split('*')[0];
   var minCount = $('.min').val().split('*')[2];
-  var showLevel = {$maxWidth: maxCount, normalWidth: normalCount, minWidth: minCount};
+
   var count = 0;
   if (width == maxWidth) count = maxCount;
   if (width == normalWidth) count = normalCount;
