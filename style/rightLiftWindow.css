@@ -90,27 +90,27 @@ div.content>a>div>img {
 }
 
 @-moz-keyframes img_act {
-  0% { opacity: 0; -webkit-filter: saturate(1) contrast(1) brightness(1);}
-  50% { opacity: 0.5; -webkit-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
-  100% { opacity: 1; -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
+  0% { opacity: 0; -moz-filter: saturate(1) contrast(1) brightness(1);}
+  50% { opacity: 0.5; -moz-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
+  100% { opacity: 1; -moz-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
 }
 
 @-o-keyframes img_act {
-  0% { opacity: 0; -webkit-filter: saturate(1) contrast(1) brightness(1);}
-  50% { opacity: 0.5; -webkit-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
-  100% { opacity: 1; -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
+  0% { opacity: 0; -o-filter: saturate(1) contrast(1) brightness(1);}
+  50% { opacity: 0.5; -o-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
+  100% { opacity: 1; -o-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
 }
 
 @-ms-keyframes img_act {
-  0% { opacity: 0; -webkit-filter: saturate(1) contrast(1) brightness(1);}
-  50% { opacity: 0.5; -webkit-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
-  100% { opacity: 1; -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
+  0% { opacity: 0; -ms-filter: saturate(1) contrast(1) brightness(1);}
+  50% { opacity: 0.5; -ms-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
+  100% { opacity: 1; -ms-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
 }
 
 @keyframes img_act {
-  0% { opacity: 0; -webkit-filter: saturate(1) contrast(1) brightness(1);}
-  50% { opacity: 0.5; -webkit-filter: saturate(1.1) contrast(1.1) brightness(1.1); }
-  100% { opacity: 1; -webkit-filter: saturate(1.2) contrast(1.2) brightness(1.2);}
+  0% { opacity: 0; filter: saturate(1) contrast(1) brightness(1);}
+  50% { opacity: 0.5; filter: saturate(1.1) contrast(1.1) brightness(1.1); }
+  100% { opacity: 1; filter: saturate(1.2) contrast(1.2) brightness(1.2);}
 }
 
 @-webkit-keyframes progress_bottom_act {
