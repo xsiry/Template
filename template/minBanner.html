@@ -10,8 +10,8 @@
   <meta name="author" content="xsiry">
   <title>minBanner条</title>
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="style/banner.css">
+  <link rel="stylesheet" type="text/css" href="../js/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../style/banner.css">
 </head>
 
 <body>
@@ -41,35 +41,38 @@
     </script>
   </div>
   <!-- JS -->
-  <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/art-template/template.js"></script>
+  <script type="text/javascript" src="../js/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../js/art-template/template.js"></script>
   <script type="text/javascript">
+
+  // {{JSONDATA}}
+
   // 数据源
   var templateSource = [{
     type: '休闲游戏',
     list: [{
       url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html',
-      number: '111',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '原始传奇(休闲)'
     }, {
       url: '',
-      number: '222',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: false,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '通天西游(休闲)'
     }, {
       url: '',
-      number: '333',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '剑雨江湖(休闲)'
     }, {
       url: '',
-      number: '444',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '东方世纪(休闲)'
     }]
   }, {
@@ -78,58 +81,58 @@
       url: 'javascript:void(0)',
       number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '原始传奇(网络)'
     }, {
       url: '',
       number: 'B7C7268E6F50|5256E9BF6B1A|81C626D7CA1C',
       hot: false,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '通天西游(网络)'
     }, {
       url: '',
       number: 'B7C7268E6F50|5256E9BF6B1A|759BCECB13EA',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '剑雨江湖(网络)'
     }, {
       url: '',
       number: 'B7C7268E6F50|5256E9BF6B1A|8EC9D28252DC',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '东方世纪(网络)'
     }]
   }, {
     type: '默认',
     list: [{
       url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html',
-      number: '1',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/53oe9ek90ut2jlqt1471314608.jpg/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '原始传奇(默认)'
     }, {
       url: '',
-      number: '2',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: false,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/zm91ry6rctntum81491447910/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '通天西游(默认)'
     }, {
       url: '',
-      number: '3',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/v1bclez1csji5za1484877381/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '剑雨江湖(默认)'
     }, {
       url: '',
-      number: '4',
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0',
       hot: true,
-      imgSrc: 'http://puui.qpic.cn/vcover_vt_pic/0/691om0rwg270ihut1468123232.jpg/220',
+      imgSrc: '../target/source/minbanner/test.png',
       title: '东方世纪(默认)'
     }]
   }];
   </script>
-  <script type="text/javascript" src="js/upload.js"></script>
-  <script type="text/javascript" src="js/banner.js"></script>
+  <script type="text/javascript" src="../js/upload.js"></script>
+  <script type="text/javascript" src="../js/banner.js"></script>
 </body>
 
 </html>

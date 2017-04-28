@@ -10,8 +10,8 @@
   <meta name="author" content="xsiry">
   <title>rightLiftWindow</title>
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="style/rightLiftWindow.css" />
+  <link rel="stylesheet" type="text/css" href="../js/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../style/rightLiftWindow.css" />
   <svg class="txp_svg_sprite txp_svg_sprite_head" display="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <symbol id="close_win">
       <path d="M408.873984 409.984l69.180416 0 0 67.372032-69.180416 0 0-67.372032Z" p-id="2895"></path>
@@ -33,7 +33,7 @@
       <div class="lift_win">
         <div class="close_win">
           <!-- 关闭Btn -->
-          <a href="javascript:void(0);">
+          <a href="close://#">
             <svg class="svg_icon" viewBox="0 0 1024 1024">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close_win"></use>
             </svg>
@@ -67,30 +67,21 @@
     </script>
   </div>
   <!-- JS -->
-  <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/art-template/template.js"></script>
+  <script type="text/javascript" src="../js/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../js/art-template/template.js"></script>
   <script type="text/javascript">
+
+  // {{JSONDATA}}
+
+  /* 图片参数结构备注
+    list: [{
+      url: '',
+      imgSrc: '../target/source/rightLiftWindow/t1.jpg',
+      number: '',
+      title: ''
+    }]
+     */
   // 数据源
-  var templateSource1 = {
-    iframe: {
-      url: 'http://www.baidu.com'
-    },
-    flash: {
-      url: ''
-    },
-    list: []
-  };
-
-  var templateSource2 = {
-    iframe: {
-      url: ''
-    },
-    flash: {
-      url: './source/rightLiftWindow/1.swf'
-    },
-    list: []
-  };
-
   var templateSource = {
     iframe: {
       url: ''
@@ -98,37 +89,38 @@
     flash: {
       url: ''
     },
+
     list: [{
       url: '',
-      imgSrc: './source/rightLiftWindow/t1.jpg',
+      imgSrc: '../target/source/rightLiftWindow/t1.jpg',
       number: '',
       title: ''
     }, {
       url: '',
-      imgSrc: './source/rightLiftWindow/t2.jpg',
+      imgSrc: '../target/source/rightLiftWindow/t2.jpg',
       number: '',
       title: ''
     }, {
       url: '',
-      imgSrc: './source/rightLiftWindow/t3.jpg',
+      imgSrc: '../target/source/rightLiftWindow/t3.jpg',
       number: '',
       title: ''
     }, {
       url: '',
-      imgSrc: './source/rightLiftWindow/t4.jpg',
+      imgSrc: '../target/source/rightLiftWindow/t4.jpg',
       number: '',
       title: ''
     }, {
       url: '',
-      imgSrc: './source/rightLiftWindow/t5.jpg',
+      imgSrc: '../target/source/rightLiftWindow/t5.jpg',
       number: '',
       title: ''
     }]
   };
 
   </script>
-  <script type="text/javascript" src="js/rightLiftWindow.js"></script>
-  <script type="text/javascript" src="js/upload.js"></script>
+  <script type="text/javascript" src="../js/rightLiftWindow.js"></script>
+  <script type="text/javascript" src="../js/upload.js"></script>
 </body>
 
 </html>
