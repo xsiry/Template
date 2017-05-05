@@ -40,10 +40,11 @@
             关闭
           </a>
         </div>
+        <!-- 外网链接 -->
         <div class="my_iframe" style="{{if iframe.url != ''}}display: block;{{/if}}">
           <iframe id="" src="{{iframe.url}}" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
         </div>
-
+        <!-- flash动画 -->
         <div class="my_flash" style="{{if flash.url != ''}}display: block;{{/if}}">
           <object class="adClickCss" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="100%" height="100%">
             <param name="movie" value="{{flash.url}}">
@@ -53,7 +54,7 @@
           </object>
           <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
         </div>
-
+        <!-- 图片循环 -->
         <div class="my_img" style="{{if list.length > 0}} display: block;{{/if}}">
           {{each list as obj i}}
           <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self" number="{{obj.number}}">
