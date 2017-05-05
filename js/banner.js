@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  arrRandom();
   actionUrl();
   loadUpload();
 });
@@ -13,7 +14,21 @@ function actionUrl() {
   if (_fndname == 'undefined') _fndname = '默认';
   $.each(templateSource, function(i, o) {
     if (o.type == _fndname) {
-      data = o;
+      data.type = o.type;
+
+      var tList = []; // 置顶的对象集合
+      var rList = []; // 需要进行随机化的对象集合
+      $.each(o.list, function(n, b) {
+        if (b.top == true) {
+          tList.push(b);
+        } else {
+          rList.push(b);
+        }
+      });
+      if (o.random == true) { // 如果random==true，进行随机化
+        rList = rList.shuffle();
+      };
+      data.list = $.merge(tList, rList);
       return false;
     }
   })
@@ -36,7 +51,7 @@ function actionUrl() {
   if (width == normalWidth) count = normalCount;
   if (width == minWidth) count = minCount;
 
-  $('.banner_block').css('width', (width-(count-1)*7)/count);
+  $('.banner_block').css('width', (width - (count - 1) * 7) / count);
   $('.banner_list').css('height', height + 'px');
 }
 // url传参数变化类别
@@ -52,5 +67,21 @@ function getParams(fndname) {
     var value = pairs[i].substring(pos + 1); //提取value
     if (argname == fndname)
       return value;
+  }
+}
+
+function arrRandom() {
+  if (!Array.prototype.shuffle) {
+    Array.prototype.shuffle = function() {
+      for (var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+
+      // for (var i = 0; i < this.length; i) {
+      //   var j = parseInt(Math.random() * i);
+      //   var x = this[i];
+      //   this[i++] = this[j];
+      //   this[j] = x;
+      // }
+      return this;
+    };
   }
 }
