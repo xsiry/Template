@@ -73,23 +73,37 @@
 
   // {{JSONDATA}}
 
-  /* 图片参数结构备注
+  /* 参数结构备注
+  var templateSource = {
+    iframe: {
+      url: 'https://www.baidu.com' // 外网地址
+    },
+    flash: {
+      url: '../target/source/rightLiftWindow/1.swf' // flash文件地址
+    },
+    imgRandom: true, // 图片是否随机
+    imgShowNum: 4, // 图片循环展示数目
+    imgSec: 3, // 图片展示时间 单位：秒
     list: [{
-      url: '',
-      imgSrc: '../target/source/rightLiftWindow/t1.jpg',
-      number: '',
-      title: ''
-    }]
-     */
+      url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html', // 跳转地址
+      imgSrc: '../target/source/rightLiftWindow/t1.jpg', // 图片地址
+      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0', // 图片广告编号
+      title: '原始传奇' // 图片标题
+    }, ...]
+  }
+  */
+
   // 数据源
   var templateSource = {
     iframe: {
-      url: ''
+      url: 'https://www.baidu.com'
     },
     flash: {
-      url: ''
+      url: '../target/source/rightLiftWindow/1.swf'
     },
-
+    imgRandom: true, // 图片是否随机
+    imgShowNum: 4, // 图片循环展示数目
+    imgSec: 3, // 图片展示时间 秒
     list: [{
       url: '',
       imgSrc: '../target/source/rightLiftWindow/t1.jpg',
