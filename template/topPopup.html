@@ -46,7 +46,7 @@
             </svg>
           </div>
           <div class="right_btn">
-            <svg class="svg_icon" viewBox="0 0 1024 1024" transform="rotate(180, 0 0)">
+            <svg class="svg_icon right_svg" viewBox="0 0 1024 1024">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow_svg"></use>
             </svg>
           </div>
@@ -77,9 +77,9 @@
     flash: {
       url: '../target/source/rightLiftWindow/1.swf' // flash文件地址
     },
-    imgRandom: true, // 图片是否随机
-    imgShowNum: 4, // 图片循环展示数目
-    imgSec: 3, // 图片展示时间 单位：秒
+    imgRandom: true, // 图片是否随机，可以不设置，默认false
+    imgShowNum: 4, // 图片循环展示数目，可以不设置，默认4
+    imgSec: 3, // 图片展示时间 单位：秒，可以不设置，默认4秒
     list: [{
       url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html', // 跳转地址
       imgSrc: '../target/source/rightLiftWindow/t1.jpg', // 图片地址
@@ -95,11 +95,11 @@
       url: 'https://www.baidu.com'
     },
     flash: {
-      url: '../target/source/rightLiftWindow/1.swf'
+      // url: '../target/source/topPopup/1.swf'
     },
     imgRandom: true , // 图片是否随机
     imgShowNum: 2, // 图片循环展示数目
-    imgSec: 3, // 图片展示时间 秒
+    imgSec: 3, // 图片展示时间 单位：秒
     list: [{
       url: '',
       imgSrc: '../target/source/topPopup/t1.jpg',
