@@ -36,23 +36,22 @@ function actionUrl() {
   var html = template('banner_template', data);
   $('.content').html(html);
 
-  // 根据可视尺寸，自适应宽度
   var height = $(window).height();
   var width = $(window).width();
-  var maxWidth = $('.max').val().split('*')[0];
-  var maxCount = $('.max').val().split('*')[2];
-  var normalWidth = $('.normal').val().split('*')[0];
-  var normalCount = $('.normal').val().split('*')[2];
-  var minWidth = $('.min').val().split('*')[0];
-  var minCount = $('.min').val().split('*')[2];
+  // 获取图片配置宽度*高度
+  var imgConfig = $('.config').val().split('|')[0];
+  var minConfig = $('.config').val().split('|')[1];
+  var normalConfig = $('.config').val().split('|')[2];
+  var maxConifg = $('.config').val().split('|')[3];
 
   var count = 0;
-  if (width == maxWidth) count = maxCount;
-  if (width == normalWidth) count = normalCount;
-  if (width == minWidth) count = minCount;
 
-  $('.banner_block').css('width', (width - (count - 1) * 7) / count);
-  $('.banner_list').css('height', height + 'px');
+  if (width == minConfig.split('*')[0]) count = minConfig.split('*')[1];
+  if (width == normalConfig.split('*')[0]) count = normalConfig.split('*')[1];
+  if (width == maxConifg.split('*')[0]) count = maxConifg.split('*')[1];
+  $('.banner_block').css('margin-left', (width - imgConfig.split('*')[0] * count) / (count - 1));
+  $('.banner_block').css('width', imgConfig.split('*')[0] + 'px');
+  $('.banner_list').css('height', imgConfig.split('*')[1] + 'px');
 }
 // url传参数变化类别
 function getParams(fndname) {
@@ -74,13 +73,6 @@ function arrRandom() {
   if (!Array.prototype.shuffle) {
     Array.prototype.shuffle = function() {
       for (var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
-
-      // for (var i = 0; i < this.length; i) {
-      //   var j = parseInt(Math.random() * i);
-      //   var x = this[i];
-      //   this[i++] = this[j];
-      //   this[j] = x;
-      // }
       return this;
     };
   }

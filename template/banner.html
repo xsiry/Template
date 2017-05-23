@@ -10,22 +10,19 @@
   <meta name="author" content="xsiry">
   <title>banner条</title>
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="../js/bootstrap/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="../style/banner.css">
 </head>
 
 <body>
   <div class="content">
     <script id="banner_template" type="text/html">
-      <!-- 尺寸规则 宽度*高度*个数 -->
-      <input type="hidden" class="max" name="max" value="1491*198*12">
-      <input type="hidden" class="normal" name="normal" value="1281*174*10">
-      <input type="hidden" class="min" name="min" value="1024*150*8">
+      <!-- 尺寸规则 图片宽度*高度|banner条宽度*个数|banner条宽度*个数|banner条宽度*个数-->
+      <input type="hidden" class="config" name="config" value="128*200|1088*8|1360*10|1496*11">
 
       <div class="banner_list">
         {{each list as ban i}}
         <a class="up_a" href="{{ban.url}}" target="_self" number="{{ban.number}}">
-          <div class="banner_block" style="{{if i==0 }}margin-left:0px;{{/if}}">
+          <div class="banner_block {{if i==0}}first_block{{/if}}">
             <img class="up_img" src="{{ban.imgSrc}}" alt="{{ban.title}}" number="{{ban.number}}">
             {{if ban.hot}}
             <div class="tag"></div>

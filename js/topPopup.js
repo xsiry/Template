@@ -40,10 +40,10 @@ function init() {
     if (type == 0) {
       status = (templateSource.iframe && templateSource.iframe.url);
       if (status) tSource.iframe = templateSource.iframe;
-    }else if(type == 1) {
+    }else if(type == 2) {
       status = (templateSource.flash && templateSource.flash.url);
       if (status) tSource.flash = templateSource.flash;
-    }else if(type == 2){
+    }else if(type == 1){
       var rList = [];
       var sList = templateSource.list;
       status = (sList) && (sList.length > 0);

@@ -18,9 +18,13 @@ body {
   width: 124px;
   height: 100%;
   float: left;
-  margin-left: 7px;
+  margin-left: 5px;
   background-color: #ECECEC;
   transition: box-shadow 1s ease-out, transform .1s ease-in, -webkit-filter 1s ease-out;
+}
+
+.first_block {
+  margin-left:0px !important;
 }
 
 .banner_block:visited {
