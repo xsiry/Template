@@ -10,8 +10,13 @@ function actionUrl() {
     type: "",
     list: []
   }
-  var _fndname = decodeURI(getParams("class"));
-  if (_fndname == 'undefined') _fndname = '默认';
+  var defaultData = {
+    type: "",
+    list: []
+  }
+  var _fndname = '默认';
+  var _class = decodeURI(getParams("class"));
+  if (_class != 'undefined') _fndname = _class;
   $.each(templateSource, function(i, o) {
     if (o.type == _fndname) {
       data.type = o.type;
@@ -31,7 +36,29 @@ function actionUrl() {
       data.list = $.merge(tList, rList);
       return false;
     }
+
+    // 如果class 匹配不到使用默认列表
+    if (o.type == '默认') {
+      defaultData.type = o.type;
+
+      var tList = []; // 置顶的对象集合
+      var rList = []; // 需要进行随机化的对象集合
+      $.each(o.list, function(n, b) {
+        if (b.top == true) {
+          tList.push(b);
+        } else {
+          rList.push(b);
+        }
+      });
+      if (o.random == true) { // 如果random==true，进行随机化
+        rList = rList.shuffle();
+      };
+      defaultData.list = $.merge(tList, rList);
+    }
   })
+
+  // 如果class 匹配不到使用默认列表
+  if (data.type == "" && data.list.length == 0) data = defaultData;
 
   var html = template('banner_template', data);
   $('.content').html(html);
