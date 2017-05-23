@@ -73,9 +73,14 @@ function actionUrl() {
 
   var count = 0;
 
-  if (width == minConfig.split('*')[0]) count = minConfig.split('*')[1];
-  if (width == normalConfig.split('*')[0]) count = normalConfig.split('*')[1];
-  if (width == maxConifg.split('*')[0]) count = maxConifg.split('*')[1];
+  if (width < normalConfig.split('*')[0]) {
+    count = minConfig.split('*')[1];
+  } else if (width >= normalConfig.split('*')[0] && width < maxConifg.split('*')[0]) {
+    count = normalConfig.split('*')[1];
+  } else {
+    count = maxConifg.split('*')[1];
+  };
+
   $('.banner_block').css('margin-left', (width - imgConfig.split('*')[0] * count) / (count - 1));
   $('.banner_block').css('width', imgConfig.split('*')[0] + 'px');
   $('.banner_list').css('height', imgConfig.split('*')[1] + 'px');
