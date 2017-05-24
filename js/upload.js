@@ -1,3 +1,6 @@
+var count = 0; // 最大重连次数
+var urls = ['www.yun58.vip', '122.225.7.5:81']; // 随机上报服务器集合
+
 // 图片加载完成进行上报，并绑定click事件
 function loadUpload() {
   var ucid = $('#ucid').val();
@@ -31,10 +34,8 @@ function clickUpload(adId, gameId) {
   upload(params)
 }
 
-var count = 0;
 function upload(params) {
   count++;
-  var urls = ['www.yun58.vip', '122.225.7.5:81'];
   var i = Math.floor(Math.random()* urls.length);
   $.ajax({
     type: 'GET',
