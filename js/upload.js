@@ -4,18 +4,23 @@ function loadUpload() {
   var area = $('#area').val();
   var mac  = $('#mac').val();
   $('.up_img').each(function(i, img) {
-    $(this).on('load', function(e) {
-      var adId = $(e.currentTarget).attr('adId');
-      var gameId = $(e.currentTarget).attr('gameId');
-      var params = [10000, ucid, area, mac, adId, gameId, 1, 0].join(',');
-      upload(params)
-    })
     $(this).closest('.up_a').on('click', function(e) {
       var adId = $(e.currentTarget).attr('adId');
       var gameId = $(e.currentTarget).attr('gameId');
       clickUpload(adId, gameId);
     })
   })
+
+  $(document).ready(function () {
+    var paramsArr = [];
+    $('.up_img').each(function(i, img) {
+      var adId = $(img).attr('adId');
+      var gameId = $(img).attr('gameId');
+      var params = [10000, ucid, area, mac, adId, gameId, 1, 0].join(',');
+      paramsArr.push(params);
+    })
+    upload(paramsArr.join('#'));
+  });
 }
 // 图片点击进行上报
 function clickUpload(adId, gameId) {
