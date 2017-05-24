@@ -18,7 +18,7 @@ function loadUpload() {
       var gameId = $(img).attr('gameId');
       var params = [10000, ucid, area, mac, adId, gameId, 1, 0].join(',');
       paramsArr.push(params);
-    })
+    });
     upload(paramsArr.join('#'));
   });
 }
@@ -32,14 +32,23 @@ function clickUpload(adId, gameId) {
 }
 
 function upload(params) {
-  $.ajax({
-    type: 'GET',
-    url: 'http://www.yun58.vip/uploadlog/',
-    dataType: 'text',
-    data: params,
-    success: function(){},
-    error: function(e) {
-      console.log(e);
-    }
-  });
+  var urls = ['www.yun58.vip', '122.225.7.5:81'];
+  var pass = false;
+  do{
+    var i = Math.floor(Math.random()* urls.length)
+    $.ajax({
+      type: 'GET',
+      url: 'http://'+ urls[i] + '/uploadlog/',
+      cache: true,
+      dataType: 'text',
+      data: encodeURIComponent(params),
+      success: function(data){
+        pass = true;
+      },
+      error: function(e) {
+        console.log(e)
+        pass = false;
+      }
+    });
+  } while (pass);
 }
