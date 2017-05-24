@@ -27,15 +27,14 @@ function clickUpload(adId, gameId) {
 }
 
 function upload(params) {
-  alert(params);
-  // $.ajax({
-  //   type: 'GET',
-  //   url: 'http://www.yun58.vip/uploadlog/',
-  //   dataType: 'text',
-  //   data: params,
-  //   success: function(){},
-  //   error: function(e) {
-  //     console.log(e);
-  //   }
-  // });
+  $.ajax({
+    type: 'GET',
+    url: 'http://www.yun58.vip/uploadlog/',
+    dataType: 'text',
+    data: params,
+    success: function(){},
+    error: function(e) {
+      console.log(e);
+    }
+  });
 }
