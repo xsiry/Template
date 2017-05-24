@@ -31,24 +31,21 @@ function clickUpload(adId, gameId) {
   upload(params)
 }
 
+var count = 0;
 function upload(params) {
+  count++;
   var urls = ['www.yun58.vip', '122.225.7.5:81'];
-  var pass = false;
-  do{
-    var i = Math.floor(Math.random()* urls.length)
-    $.ajax({
-      type: 'GET',
-      url: 'http://'+ urls[i] + '/uploadlog/',
-      cache: true,
-      dataType: 'text',
-      data: encodeURIComponent(params),
-      success: function(data){
-        pass = true;
-      },
-      error: function(e) {
-        console.log(e)
-        pass = false;
-      }
-    });
-  } while (pass);
+  var i = Math.floor(Math.random()* urls.length);
+  $.ajax({
+    type: 'GET',
+    url: 'http://'+ urls[i] + '/uploadlog/',
+    cache: true,
+    dataType: 'text',
+    data: encodeURIComponent(params),
+    success: function(data){},
+    error: function(e) {
+      console.log(e.responseText)
+      if (count < 10) upload(params);
+    }
+  });
 }
