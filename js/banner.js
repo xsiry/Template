@@ -15,6 +15,25 @@ function actionUrl() {
     list: []
   }
   var _fndname = '默认';
+  // 可视窗口大小
+  var height = $(window).height();
+  var width = $(window).width();
+  // 获取图片配置宽度*高度
+  var imgConfig = $('.config').val().split('|')[0];
+  var minConfig = $('.config').val().split('|')[1];
+  var normalConfig = $('.config').val().split('|')[2];
+  var maxConifg = $('.config').val().split('|')[3];
+
+  var count = 0;
+
+  if (width < normalConfig.split('*')[0]) {
+    count = minConfig.split('*')[1];
+  } else if (width >= normalConfig.split('*')[0] && width < maxConifg.split('*')[0]) {
+    count = normalConfig.split('*')[1];
+  } else {
+    count = maxConifg.split('*')[1];
+  };
+
   var _class = decodeURI(getParams("class"));
   if (_class != 'undefined') _fndname = _class;
   $.each(templateSource, function(i, o) {
@@ -33,7 +52,11 @@ function actionUrl() {
       if (o.random == true) { // 如果random==true，进行随机化
         rList = rList.shuffle();
       };
-      data.list = $.merge(tList, rList);
+
+      var mergeList = $.merge(tList, rList);
+      data.list = $.grep(mergeList, function(n,i){
+                    return i < count;
+                  });
       return false;
     }
 
@@ -53,7 +76,11 @@ function actionUrl() {
       if (o.random == true) { // 如果random==true，进行随机化
         rList = rList.shuffle();
       };
-      defaultData.list = $.merge(tList, rList);
+
+      var mergeList = $.merge(tList, rList);
+      defaultData.list = $.grep(mergeList, function(n,i){
+                            return i < count;
+                          });
     }
   })
 
@@ -62,24 +89,6 @@ function actionUrl() {
 
   var html = template('banner_template', data);
   $('.content').html(html);
-
-  var height = $(window).height();
-  var width = $(window).width();
-  // 获取图片配置宽度*高度
-  var imgConfig = $('.config').val().split('|')[0];
-  var minConfig = $('.config').val().split('|')[1];
-  var normalConfig = $('.config').val().split('|')[2];
-  var maxConifg = $('.config').val().split('|')[3];
-
-  var count = 0;
-
-  if (width < normalConfig.split('*')[0]) {
-    count = minConfig.split('*')[1];
-  } else if (width >= normalConfig.split('*')[0] && width < maxConifg.split('*')[0]) {
-    count = normalConfig.split('*')[1];
-  } else {
-    count = maxConifg.split('*')[1];
-  };
 
   $('.banner_block').css('margin-left', (width - imgConfig.split('*')[0] * count) / (count - 1));
   $('.banner_block').css('width', imgConfig.split('*')[0] + 'px');
