@@ -11,6 +11,16 @@
   <title>banner条</title>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="style/banner.css">
+    <!--[if lt IE 9]>
+    <style type="text/css">
+      .bottom_title {
+        margin-left: 2px; /* IE8 */
+        bottom: -2px; /* IE8 */
+        background-color: #000; /* IE8 */
+        filter: alpha(opacity=70) /* IE8 */
+      }
+    </style>
+  <![endif]-->
 </head>
 
 <body>
@@ -38,7 +48,40 @@
     </script>
   </div>
   <!-- JS -->
+  <!--[if !IE]><!-->
   <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
+  <!--<![endif]-->
+  <!--[if lt IE 9]>
+  <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.bootcss.com/selectivizr/1.0.2/selectivizr-min.js"></script>
+  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <script src="https://cdn.bootcss.com/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script>
+  <script src="https://cdn.bootcss.com/es5-shim/4.5.9/es5-shim.min.js"></script>
+  <script src="https://cdn.bootcss.com/es5-shim/4.5.9/es5-sham.min.js"></script>
+  <script src="https://cdn.bootcss.com/json3/3.3.2/json3.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <![endif]-->
+  <!--[if gte IE 8]>
+  <script type="text/javascript">
+    (function() {
+      var method;
+      var noop = function() {};
+      var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'
+      ];
+      var length = methods.length;
+      var console = (window.console = window.console || {});
+      while (length--) {
+        method = methods[length];
+        // Only stub undefined methods.
+        if (!console[method]) {
+          console[method] = noop;
+        }
+      }
+    }());
+  </script>
+  <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
+  <![endif]-->
   <script type="text/javascript" src="js/art-template/template.js"></script>
   <script type="text/javascript">
   // {{JSONDATA}}
