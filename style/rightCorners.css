@@ -44,6 +44,7 @@ div.content>a>div>img {
 
 .close_win>a {
   color: #FFFFFF;
+  text-decoration: none;
 }
 
 .close_win>a:hover {

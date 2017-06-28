@@ -8,9 +8,9 @@
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
   <meta name="description" content="">
   <meta name="author" content="xsiry">
-  <title>topPopup</title>
+  <title>minDatas</title>
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="style/topPopup.css" />
+  <link rel="stylesheet" type="text/css" href="style/minDatas.css" />
 
   <svg class="txp_svg_sprite txp_svg_sprite_head" display="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <symbol id="arrow_svg">
@@ -21,6 +21,10 @@
 
 <body>
   <input id="a" name="a" type="hidden" value="http://uad.nmenu.cn/adst.jsp" />
+  <!-- 网吧ID、区域、客户MAC地址 -->
+  <input type="hidden" id="ucid" name="ucid" value="{{UCID}}" />
+  <input type="hidden" id="area" name="area" value="{{AREA}}" />
+  <input type="hidden" id="mac" name="mac"  value="{{MAC}}" />
   <div class="content">
     <script id="top_popup_template" type="text/html">
       <!-- 外网链接 -->
@@ -30,10 +34,11 @@
       <!-- flash动画 -->
       <div class="my_flash" style="{{if flash.url != ''}}display: block;{{/if}}">
         <object class="adClickCss" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="100%" height="100%">
-          <param name="movie" value="{{flash.url}}">
+          <param name="movie" value="{{flash.url}}?IsAutoPlay=1">
           <param name="quality" value="high">
+          <param name="allowFullScreen" value="true" />
           <param name="wmode" value="transparent">
-          <embed wmode="transparent" src="{{flash.url}}" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100%" title="Adobe Flash Player">
+          <embed wmode="transparent" src="{{flash.url}}?IsAutoPlay=1" allowfullscreen="true" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100%" title="Adobe Flash Player">
         </object>
         <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
       </div>
@@ -51,9 +56,9 @@
             </svg>
           </div>
           <div class="focus-num"><span class="current">1</span>/<span class="num">0</span></div>
-          {{each list as obj i}}
-          <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self" number="{{obj.number}}">
-            <img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" number="{{obj.number}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
+          {{each list obj i}}
+          <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self" adId="{{obj.adId}}"  gameId="{{obj.gameId}}">
+            <img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" adId="{{obj.adId}}"  gameId="{{obj.gameId}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
             <div class="i_title">{{obj.title}}</div>
           </a>
           {{/each}}
@@ -67,14 +72,14 @@
   <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
   <!--<![endif]-->
   <!--[if lt IE 9]>
-  <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
-  <script src="https://cdn.bootcss.com/selectivizr/1.0.2/selectivizr-min.js"></script>
-  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-  <script src="https://cdn.bootcss.com/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script>
-  <script src="https://cdn.bootcss.com/es5-shim/4.5.9/es5-shim.min.js"></script>
-  <script src="https://cdn.bootcss.com/es5-shim/4.5.9/es5-sham.min.js"></script>
-  <script src="https://cdn.bootcss.com/json3/3.3.2/json3.min.js"></script>
-  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="./js/ie8/html5.min.js"></script>
+  <script src="./js/ie8/selectivizr-min.js"></script>
+  <script src="./js/ie8/respond.min.js"></script>
+  <script src="./js/ie8/css3-mediaqueries.min.js"></script>
+  <script src="./js/ie8/es5-shim.min.js"></script>
+  <script src="./js/ie8/es5-sham.min.js"></script>
+  <script src="./js/ie8/json3.min.js"></script>
+  <script src="./js/ie8/jquery.min.js"></script>
   <![endif]-->
   <!--[if gte IE 8]>
   <script type="text/javascript">
@@ -104,66 +109,68 @@
 
   /* 参数结构备注
   var templateSource = {
-    iframe: {
-      url: 'https://www.baidu.com' // 外网地址
-    },
-    flash: {
-      url: '../target/source/rightLiftWindow/1.swf' // flash文件地址
-    },
-    imgRandom: true, // 图片是否随机，可以不设置，默认false
-    imgShowNum: 4, // 图片循环展示数目，可以不设置，默认4
-    imgSec: 3, // 图片展示时间 单位：秒，可以不设置，默认4秒
-    list: [{
-      url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html', // 跳转地址
-      imgSrc: '../target/source/rightLiftWindow/t1.jpg', // 图片地址
-      number: 'B7C7268E6F50|5256E9BF6B1A|F14E559C5CD0', // 图片广告编号
-      title: '原始传奇' // 图片标题
-    }, ...]
+    iframes: [{url: 'http://tou.junnew.com:8090/ViewHit/hitSimpleNew?bid=6102'}, ...],
+    flashs: [{url: 'http://js.nmenu.net/html/upload/2017/04/16/201704161542400265.swf'}, ...],
+    imgs: {
+      imgRandom: true, // 图片是否随机，可以不设置，默认false
+      imgShowNum: 4, // 图片循环展示数目，可以不设置，默认4
+      imgSec: 3, // 图片展示时间 单位：秒，可以不设置，默认4秒
+      list: [{
+        url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html', // 跳转地址
+        adId: '',
+        gameId: '',
+        imgSrc: '../target/source/rightLiftWindow/t1.jpg', // 图片地址
+        title: '原始传奇' // 图片标题
+      }, ...]
+    }
   }
   */
 
   // 数据源
   var templateSource = {
-    iframe: {
-      url: 'http://tou.junnew.com:8090/ViewHit/hitSimpleNew?bid=6102'
-    },
-    flash: {
-      url: 'http://js.nmenu.net/html/upload/2017/04/16/201704161542400265.swf'
-    },
-    imgRandom: true, // 图片是否随机
-    imgShowNum: 4, // 图片循环展示数目
-    imgSec: 3, // 图片展示时间 单位：秒
-    list: [{
-      url: '',
-      imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/17/2017051775927341.jpg',
-      number: '',
-      title: '光明重影'
-    }, {
-      url: '',
-      imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/10/2017051032419689.jpg',
-      number: '',
-      title: '狙击手：幽灵战士3'
-    }, {
-      url: '',
-      imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/19/20170519104649291.jpg',
-      number: '',
-      title: '《蓝月传奇》3V3巅峰赛季赛事'
-    }, {
-      url: '',
-      imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/18/2017051851425825.jpg',
-      number: '',
-      title: '腾讯《冒险世界ol》520表白日专题活动开启！'
-    }, {
-      url: '',
-      imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/19/2017051944400353.jpg',
-      number: '',
-      title: '《生化危机：启示录》两段游戏试玩演示'
-    }]
+    iframes: [{url: 'http://tou.junnew.com:8090/ViewHit/hitSimpleNew?bid=6102'}],
+    flashs: [{url: '../mediafiles/屠龙战记-526X261.swf'},{url: '../mediafiles/西游伏妖篇-526X261.swf'},{url: '../mediafiles/天衍录-526X261.swf'},{url: '../mediafiles/寒刀-526X261.swf'}],
+    imgs: {
+      imgRandom: true, // 图片是否随机
+      imgShowNum: 4, // 图片循环展示数目
+      imgSec: 3, // 图片展示时间 单位：秒
+      list: [{
+        url: '',
+        adId: '',
+        gameId: '',
+        imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/17/2017051775927341.jpg',
+        title: '光明重影'
+      }, {
+        url: '',
+        adId: '',
+        gameId: '',
+        imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/10/2017051032419689.jpg',
+        title: '狙击手：幽灵战士3'
+      }, {
+        url: '',
+        adId: '',
+        gameId: '',
+        imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/19/20170519104649291.jpg',
+        title: '《蓝月传奇》3V3巅峰赛季赛事'
+      }, {
+        url: '',
+        adId: '',
+        gameId: '',
+        imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/18/2017051851425825.jpg',
+        title: '腾讯《冒险世界ol》520表白日专题活动开启！'
+      }, {
+        url: '',
+        adId: '',
+        gameId: '',
+        imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/19/2017051944400353.jpg',
+        title: '《生化危机：启示录》两段游戏试玩演示'
+      }]
+    }
   };
 
   </script>
-  <script type="text/javascript" src="js/topPopup.js"></script>
   <script type="text/javascript" src="js/upload.js"></script>
+  <script type="text/javascript" src="js/minDatas.js"></script>
 </body>
 
 </html>

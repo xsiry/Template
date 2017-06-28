@@ -4,6 +4,10 @@ $(document).ready(function() {
   loadUpload();
 });
 
+$(window).resize(function () {
+  actionUrl();
+})
+
 function actionUrl() {
   // 初始化数据对象
   var data = {
@@ -89,10 +93,10 @@ function actionUrl() {
 
   var html = template('banner_template', data);
   $('.content').html(html);
-
   $('.banner_block').css('margin-left', (width - imgConfig.split('*')[0] * count) / (count - 1));
   $('.banner_block').css('width', imgConfig.split('*')[0] + 'px');
   $('.banner_list').css('height', imgConfig.split('*')[1] + 'px');
+  $('.banner_list').css('width', width);
 }
 // url传参数变化类别
 function getParams(fndname) {

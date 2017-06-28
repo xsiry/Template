@@ -1,9 +1,9 @@
-var num = 0;
-var deNum = 4;
-var numTotal = templateSource.imgShowNum || ((templateSource.list.length < deNum) ? templateSource.list.length : deNum);
-var sec = templateSource.imgSec || 4;
-var imgRandom = templateSource.imgRandom || false;
-var interval;
+var _num = 0;
+var _deNum = 4;
+var _numTotal = templateSource.imgShowNum || ((templateSource.imgs.list.length < _deNum) ? templateSource.imgs.list.length : _deNum);
+var _sec = templateSource.imgSec || 4;
+var _imgRandom = templateSource.imgRandom || false;
+var _interval;
 
 
 $(document).ready(function() {
@@ -11,6 +11,10 @@ $(document).ready(function() {
   init();
   loadUpload();
 });
+
+$(window).resize(function () {
+  init();
+})
 
 function init() {
   var width = $(window).width();
@@ -30,29 +34,31 @@ function init() {
     list: []
   }
 
-  if (!templateSource.iframe && !templateSource.iframe.url && !templateSource.flash && !templateSource.flash.url && !templateSource.list && templateSource.list.length == 0) {
-    return;
-  }
-
   var status = true;
   do {
     var type = Math.floor(Math.random()* 3);
     if (type == 0) {
-      status = (templateSource.iframe && templateSource.iframe.url);
-      if (status) tSource.iframe = templateSource.iframe;
+      status = (templateSource.iframes && templateSource.iframes.length > 0);
+      if (status) {
+        var iIndex = Math.floor(Math.random() * templateSource.iframes.length);
+        tSource.iframe.url = templateSource.iframes[iIndex].url;
+      };
     }else if(type == 2) {
-      status = (templateSource.flash && templateSource.flash.url);
-      if (status) tSource.flash = templateSource.flash;
+      status = (templateSource.flashs && templateSource.flashs.length > 0);
+      if (status) {
+        var fIndex = Math.floor(Math.random() * templateSource.flashs.length);
+        tSource.flash.url = templateSource.flashs[fIndex].url;
+      };
     }else if(type == 1){
       var rList = [];
-      var sList = templateSource.list;
+      var sList = templateSource.imgs.list;
       status = (sList) && (sList.length > 0);
       if (status) {
-        if (imgRandom == true) {
+        if (templateSource.imgs.imgRandom == true) {
           sList = sList.shuffle();
         }
 
-        rList = sList.slice(0, numTotal)
+        rList = sList.slice(0, _numTotal)
         tSource.list = rList;
       }
     }
@@ -62,17 +68,17 @@ function init() {
 
   var html = template('top_popup_template', tSource);
   $('.content').html(html);
-  $('.num').text(numTotal);
-  interval = setInterval(queueingArr, sec * 1000);
+  $('.num').text(_numTotal);
+  _interval = setInterval(queueingArr, _sec * 1000);
 
-  $('.progress_bottom_win').css('-webkit-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-  $('.progress_bottom_win').css('-moz-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-  $('.progress_bottom_win').css('-o-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-  $('.progress_bottom_win').css('-ms-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-  $('.progress_bottom_win').css('animation', 'progress_bottom_act ' + sec + 's infinite linear');
+  $('.progress_bottom_win').css('-webkit-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+  $('.progress_bottom_win').css('-moz-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+  $('.progress_bottom_win').css('-o-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+  $('.progress_bottom_win').css('-ms-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+  $('.progress_bottom_win').css('animation', 'progress_bottom_act ' + _sec + 's infinite linear');
 
   $('.top_popup').hover(function() {
-    clearInterval(interval);
+    clearInterval(_interval);
     $('.left_btn').css('transform', 'translate(0px,0px)');
     $('.right_btn').css('transform', 'translate(0px,0px)');
     $('.progress_bottom_win').css('-webkit-animation', '');
@@ -81,33 +87,33 @@ function init() {
     $('.progress_bottom_win').css('-ms-animation', '');
     $('.progress_bottom_win').css('animation', '');
   }, function() {
-    interval = setInterval(queueingArr, sec * 1000);
+    _interval = setInterval(queueingArr, _sec * 1000);
     $('.left_btn').css('transform', 'translate(-60px,0px)');
     $('.right_btn').css('transform', 'translate(60px,0px)');
-    $('.progress_bottom_win').css('-webkit-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-    $('.progress_bottom_win').css('-moz-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-    $('.progress_bottom_win').css('-o-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-    $('.progress_bottom_win').css('-ms-animation', 'progress_bottom_act ' + sec + 's infinite linear');
-    $('.progress_bottom_win').css('animation', 'progress_bottom_act ' + sec + 's infinite linear');
+    $('.progress_bottom_win').css('-webkit-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+    $('.progress_bottom_win').css('-moz-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+    $('.progress_bottom_win').css('-o-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+    $('.progress_bottom_win').css('-ms-animation', 'progress_bottom_act ' + _sec + 's infinite linear');
+    $('.progress_bottom_win').css('animation', 'progress_bottom_act ' + _sec + 's infinite linear');
   });
 
   $('.left_btn').on('click', function() {
-    num = num - 1;
-    if (num < 0) num = numTotal - 1;
-    choseImg(num);
+    _num = _num - 1;
+    if (_num < 0) _num = _numTotal - 1;
+    choseImg(_num);
   })
 
   $('.right_btn').on('click', function() {
-    num = num + 1;
-    if (num >= numTotal) num = 0;
-    choseImg(num);
+    _num = _num + 1;
+    if (_num >= _numTotal) _num = 0;
+    choseImg(_num);
   })
 }
 
 function queueingArr() {
-  num++;
-  if (num >= numTotal) num = 0;
-  choseImg(num);
+  _num++;
+  if (_num >= _numTotal) _num = 0;
+  choseImg(_num);
 }
 
 function choseImg(num) {
@@ -130,13 +136,6 @@ function arrRandom() {
   if (!Array.prototype.shuffle) {
     Array.prototype.shuffle = function() {
       for (var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
-
-      // for (var i = 0; i < this.length; i) {
-      //   var j = parseInt(Math.random() * i);
-      //   var x = this[i];
-      //   this[i++] = this[j];
-      //   this[j] = x;
-      // }
       return this;
     };
   }

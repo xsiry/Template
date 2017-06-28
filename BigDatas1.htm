@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN" style="overflow:hidden;">
+<html style="overflow:hidden;">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
   <meta name="description" content="">
   <meta name="author" content="xsiry">
-  <title>banner条</title>
+  <title>bigDatas1</title>
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="style/banner.css">
-    <!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="style/bigDatas1.css">
+  <!--[if lt IE 9]>
     <style type="text/css">
       .bottom_title {
         margin-left: 2px; /* IE8 */
@@ -34,7 +34,7 @@
   <div class="content">
     <script id="banner_template" type="text/html">
       <div class="banner_list">
-        {{each list as ban i}}
+        {{each list ban i}}
         <a class="up_a" href="{{ban.url}}" target="_self" adId="{{ban.adId}}"  gameId="{{ban.gameId}}">
           <div class="banner_block {{if i==0}}first_block{{/if}}">
             <img class="up_img" src="{{ban.imgSrc}}" alt="{{ban.title}}"  adId="{{ban.adId}}"  gameId="{{ban.gameId}}"> {{if ban.hot}}
@@ -52,14 +52,14 @@
   <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
   <!--<![endif]-->
   <!--[if lt IE 9]>
-  <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
-  <script src="https://cdn.bootcss.com/selectivizr/1.0.2/selectivizr-min.js"></script>
-  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-  <script src="https://cdn.bootcss.com/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script>
-  <script src="https://cdn.bootcss.com/es5-shim/4.5.9/es5-shim.min.js"></script>
-  <script src="https://cdn.bootcss.com/es5-shim/4.5.9/es5-sham.min.js"></script>
-  <script src="https://cdn.bootcss.com/json3/3.3.2/json3.min.js"></script>
-  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="./js/ie8/html5.min.js"></script>
+  <script src="./js/ie8/selectivizr-min.js"></script>
+  <script src="./js/ie8/respond.min.js"></script>
+  <script src="./js/ie8/css3-mediaqueries.min.js"></script>
+  <script src="./js/ie8/es5-shim.min.js"></script>
+  <script src="./js/ie8/es5-sham.min.js"></script>
+  <script src="./js/ie8/json3.min.js"></script>
+  <script src="./js/ie8/jquery.min.js"></script>
   <![endif]-->
   <!--[if gte IE 8]>
   <script type="text/javascript">
@@ -92,7 +92,7 @@
     random: true, // true 随机显示图片
     list: [{
       url: 'gamerun://gameid=38151|http://bdtg.4366.com/22984.html', // 点击跳转地址
-      imgSrc: '../target/source/banner/t1.jpg', // 图片地址
+      imgSrc: '../target/source/bigDatas1/t1.jpg', // 图片地址
       adId: 10100, // 广告ID
       gameId: 31232, // 游戏id
       title: '原始传奇', // 图片标题
@@ -112,7 +112,7 @@
       gameId: 34192,
       hot: true,
       top: true,
-      imgSrc: './target/source/banner/%E5%89%91%E4%BE%A0%E9%97%AE%E6%83%85-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E5%89%91%E4%BE%A0%E9%97%AE%E6%83%85-128X200.jpg',
       title: '剑侠问情'
     }, {
       url: 'gamerun://gameid=10134|#',
@@ -120,7 +120,7 @@
       gameId: 10134,
       hot: false,
       top: false,
-      imgSrc: './target/source/banner/%E5%8A%B2%E8%88%9E%E5%9B%A2-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E5%8A%B2%E8%88%9E%E5%9B%A2-128X200.jpg',
       title: '劲舞团'
     }, {
       url: 'gamerun://gameid=11568|http://tyl.yy.com/s/fgz/index.html',
@@ -128,7 +128,7 @@
       gameId: 11568,
       hot: true,
       top: false,
-      imgSrc: './target/source/banner/%E5%A4%A9%E8%A1%8D%E5%BD%95-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E5%A4%A9%E8%A1%8D%E5%BD%95-128X200.jpg',
       title: '天衍录'
     }, {
       url: 'gamerun://gameid=38138|#',
@@ -136,7 +136,7 @@
       gameId: 38138,
       hot: true,
       top: false,
-      imgSrc: './target/source/banner/%E5%AE%8C%E7%BE%8E%E7%BA%A2%E9%A2%9C-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E5%AE%8C%E7%BE%8E%E7%BA%A2%E9%A2%9C-128X200.jpg',
       title: '完美红颜'
     }, {
       url: 'gamerun://gameid=38176|http://www.qq8.com.cn/92rv2cp/44jzho5/v54h4g25.html?ksi8jk=fgzhd',
@@ -144,7 +144,7 @@
       gameId: 38176,
       hot: true,
       top: false,
-      imgSrc: './target/source/banner/%E5%AF%92%E5%88%80-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E5%AF%92%E5%88%80-128X200.jpg',
       title: '寒刀'
     }, {
       url: 'gamerun://gameid=38147|#',
@@ -152,7 +152,7 @@
       gameId: 38147,
       hot: false,
       top: true,
-      imgSrc: './target/source/banner/%E5%B1%A0%E9%BE%99%E6%88%98%E8%AE%B0-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E5%B1%A0%E9%BE%99%E6%88%98%E8%AE%B0-128X200.jpg',
       title: '屠龙战记'
     }, {
       url: 'gamerun://gameid=38162|http://p.kf3msfm.com/s/1/720/11159.html?uid=920024&',
@@ -160,7 +160,7 @@
       gameId: 38162,
       hot: true,
       top: false,
-      imgSrc: './target/source/banner/%E7%83%88%E7%81%AB%E5%B0%81%E7%A5%9E-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E7%83%88%E7%81%AB%E5%B0%81%E7%A5%9E-128X200.jpg',
       title: '烈火封神'
     }, {
       url: 'gamerun://gameid=38171|http://1.xiyouence.com/hb/3127/0/18926/1.html?from=fslner_0',
@@ -168,7 +168,7 @@
       gameId: 38171,
       hot: true,
       top: false,
-      imgSrc: './target/source/banner/%E7%A5%9E%E9%BE%99%E6%88%98%E5%A3%AB-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E7%A5%9E%E9%BE%99%E6%88%98%E5%A3%AB-128X200.jpg',
       title: '神龙战士'
     }, {
       url: 'gamerun://gameid=11471|http://www.9i173.com/reg/a6jg855yavc4_4',
@@ -176,7 +176,7 @@
       gameId: 11471,
       hot: false,
       top: false,
-      imgSrc: './target/source/banner/%E7%AC%91%E7%AC%91%E6%B1%9F%E6%B9%96-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E7%AC%91%E7%AC%91%E6%B1%9F%E6%B9%96-128X200.jpg',
       title: '笑笑江湖'
     }, {
       url: 'gamerun://gameid=38174|http://p.kf3msfm.com/s/1/720/14814.html?uid=920024&',
@@ -184,7 +184,7 @@
       gameId: 38174,
       hot: true,
       top: true,
-      imgSrc: './target/source/banner/%E8%A5%BF%E6%B8%B8%E4%BC%8F%E5%A6%96-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E8%A5%BF%E6%B8%B8%E4%BC%8F%E5%A6%96-128X200.jpg',
       title: '西游伏妖篇'
     }, {
       url: 'gamerun://gameid=0|http://tou.junnew.com:8090/ViewHit/hitSimpleNew?bid=6102',
@@ -192,7 +192,7 @@
       gameId: '',
       hot: true,
       top: false,
-      imgSrc: './target/source/banner/%E9%93%81%E7%94%B2%E9%9B%84%E5%85%B5-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E9%93%81%E7%94%B2%E9%9B%84%E5%85%B5-128X200.jpg',
       title: '铁甲雄兵'
     }, {
       url: 'gamerun://gameid=38025|http://www.365tq.com/7m3kc3x/3ix55k/oc9i22a65.html?f_source=wkfgzcs1',
@@ -200,13 +200,13 @@
       gameId: 38025,
       hot: true,
       top: false,
-      imgSrc: './target/source/banner/%E9%93%81%E8%A1%80%E7%9A%87%E5%9F%8E-128X200.jpg',
+      imgSrc: './target/source/bigDatas1/%E9%93%81%E8%A1%80%E7%9A%87%E5%9F%8E-128X200.jpg',
       title: '铁血皇城'
     }]
   }];
   </script>
-  <script type="text/javascript" src="js/upload.js"></script>
-  <script type="text/javascript" src="js/banner.js"></script>
+  <script type="text/javascript" src="../js/upload.js"></script>
+  <script type="text/javascript" src="js/bigDatas1.js"></script>
 </body>
 
 </html>
