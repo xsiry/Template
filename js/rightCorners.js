@@ -28,7 +28,12 @@ function init() {
       url: ''
     },
     flash: {
-      url: ''
+      url: '',
+      adId: '',
+      gameId: '',
+      clickUrl: '',
+      width: 358,
+      height: 246
     },
     list: []
   }
@@ -49,7 +54,7 @@ function init() {
       status = (templateSource.flashs && templateSource.flashs.length > 0);
       if (status) {
         var fIndex = Math.floor(Math.random() * templateSource.flashs.length);
-        tSource.flash.url = templateSource.flashs[fIndex].url;
+        tSource.flash = templateSource.flashs[fIndex];
         var iWidth = templateSource.flashs[fIndex].width;
         var iHeight = templateSource.flashs[fIndex].height;
         $('#k').val(iWidth+','+ iHeight);
@@ -74,6 +79,17 @@ function init() {
   while (!status);
   var html = template('lift_win_template', tSource);
   $('.content').html(html);
+
+  if (tSource.flash && tSource.flash.url != '') {
+    var ucid = $('#ucid').val();
+    var area = $('#area').val();
+    var mac  = $('#mac').val();
+    var adId = $('.up_flash_a').data('adid');
+    var gameId = $('.up_flash_a').data('gameid');
+    var params = [10000, ucid, area, mac, adId, gameId, 1, 0].join(',');
+    upload(params);
+  }
+
   _interval = setInterval(queueingArr, _sec * 1000);
 
   $('.progress_bottom_win').css('-webkit-animation', 'progress_bottom_act ' + _sec + 's infinite linear');

@@ -48,29 +48,40 @@
           </a>
         </div>
         <!-- 外网链接 -->
-        <div class="my_iframe" style="{{if iframe.url != ''}}display: block;{{/if}}">
+        {{if iframe.url != ''}}
+        <div class="my_iframe">
           <iframe id="" src="{{iframe.url}}" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
         </div>
+        {{/if}}
         <!-- flash动画 -->
-        <div class="my_flash" style="{{if flash.url != ''}}display: block;{{/if}}">
-          <object class="adClickCss" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="100%" height="100%">
-            <param name="movie" value="{{flash.url}}?IsAutoPlay=1">
-            <param name="quality" value="high">
-            <param name="wmode" value="transparent">
-            <param name="allowFullScreen" value="true" />
-            <embed wmode="transparent" src="{{flash.url}}?IsAutoPlay=1" allowfullscreen="true" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100%" height="100%" title="Adobe Flash Player">
-          </object>
-          <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+        {{if flash.url != ''}}
+        <div class="flash_block">
+          <a class="up_flash_a" href="{{flash.clickUrl}}"  data-adid="{{flash.adId}}"  data-gameid="{{flash.gameId}}">
+            <div class="modal_block">
+            </div>
+            <object id="object_flash" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="100%" height="100%">
+              <param name="movie" value="{{flash.url}}">
+              <param name="quality" value="high">
+              <param name="wmode" value="transparent">
+              <param name="allowFullScreen" value="true" />
+              <param name="flashvars" value="isAutoPlay=true&loop=true" />
+              <embed id="embed_flash" class='league_flash_src' src='{{flash.url}}' wmode="transparent" quality='high' width='100%' height='100%' allowScriptAccess='always' allowFullScreen='true' wmode='direct' bgcolor='#000000' flashvars='isAutoPlay=true&loop=true' pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type='application/x-shockwave-flash'>
+            </object>
+            <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe>
+          </a>
         </div>
+        {{/if}}
         <!-- 图片循环 -->
-        <div class="my_img" style="{{if list.length > 0}} display: block;{{/if}}">
+        {{if list.length > 0}}
+        <div class="my_img">
           {{each list obj i}}
-          <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self"  adId="{{obj.adId}}"  gameId="{{obj.gameId}}">
-            <img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" adId="{{obj.adId}}"  gameId="{{obj.gameId}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
+          <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self"  data-adid="{{obj.adId}}"  data-gameId="{{obj.gameId}}">
+            <img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" data-adId="{{obj.adId}}"  data-gameId="{{obj.gameId}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
           </a>
           {{/each}}
           <div class="progress_bottom_win"></div>
         </div>
+        {{/if}}
       </div>
 
     </script>
@@ -140,7 +151,16 @@
   // 数据源
   var templateSource = {
     iframes: [{url: 'http://tou.junnew.com:8090/ViewHit/hitSimpleNew?bid=6102', width: 358, height: 246}],
-    flashs: [{url: '../mediafiles/屠龙战记-358X246.swf', width: 358, height: 246}],
+    flashs: [
+      {
+        url: '../mediafiles/屠龙战记-358X246.swf',
+        adId: '09090',
+        gameId: '98089',
+        clickUrl: 'javascript:void(0);',
+        width: 358,
+        height: 246
+      }
+    ],
     imgs: {
       width: 358,
       height: 346,

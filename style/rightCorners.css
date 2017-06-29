@@ -70,19 +70,19 @@ div.content>a>div>img {
   width: 0;
 }
 
-.my_img {
-  display: none;
-}
-.my_flash {
-  display: none;
+.my_flash, .my_iframe {
   width: 100%;
   height: 100%;
 }
-.my_iframe {
-  display: none;
-  width: 100%;
+
+.modal_block {
+  display: block;
   height: 100%;
+  width: 100%;
+  z-index: 10;
+  position: absolute;
 }
+
 
 @-webkit-keyframes img_act {
   0% { opacity: 0; -webkit-filter: saturate(1) contrast(1) brightness(1);}
