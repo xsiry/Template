@@ -39,22 +39,24 @@ function clickUpload(adId, gameId) {
   var mac  = $('#mac').val();
   // 点击上报
   var params = ["10000", ucid, area, mac, adId, gameId, 0, 1].join(',');
-  upload(params)
+  // upload(params)
+      console.log(params)
 }
 
 function upload(params) {
-  count++;
-  var i = Math.floor(Math.random()* urls.length);
-  $.ajax({
-    type: 'GET',
-    url: 'http://'+ urls[i] + '/uploadlog/',
-    cache: true,
-    dataType: 'text',
-    data: encodeURIComponent(params),
-    success: function(data){},
-    error: function(e) {
-      console.log(e.responseText)
-      if (count < 10) upload(params);
-    }
-  });
+      console.log(params)
+  // count++;
+  // var i = Math.floor(Math.random()* urls.length);
+  // $.ajax({
+  //   type: 'GET',
+  //   url: 'http://'+ urls[i] + '/uploadlog/',
+  //   cache: true,
+  //   dataType: 'text',
+  //   data: encodeURIComponent(params),
+  //   success: function(data){},
+  //   error: function(e) {
+  //     console.log(e.responseText)
+  //     if (count < 10) upload(params);
+  //   }
+  // });
 }

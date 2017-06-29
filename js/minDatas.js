@@ -29,7 +29,10 @@ function init() {
       url: ''
     },
     flash: {
-      url: ''
+      url: '',
+      adId: '',
+      gameId: '',
+      clickUrl: ''
     },
     list: []
   }
@@ -41,13 +44,13 @@ function init() {
       status = (templateSource.iframes && templateSource.iframes.length > 0);
       if (status) {
         var iIndex = Math.floor(Math.random() * templateSource.iframes.length);
-        tSource.iframe.url = templateSource.iframes[iIndex].url;
+        tSource.iframe = templateSource.iframes[iIndex];
       };
     }else if(type == 2) {
       status = (templateSource.flashs && templateSource.flashs.length > 0);
       if (status) {
         var fIndex = Math.floor(Math.random() * templateSource.flashs.length);
-        tSource.flash.url = templateSource.flashs[fIndex].url;
+        tSource.flash = templateSource.flashs[fIndex];
       };
     }else if(type == 1){
       var rList = [];
@@ -68,6 +71,17 @@ function init() {
 
   var html = template('top_popup_template', tSource);
   $('.content').html(html);
+
+  if (tSource.flash && tSource.flash.url != '') {
+    var ucid = $('#ucid').val();
+    var area = $('#area').val();
+    var mac  = $('#mac').val();
+    var adId = $('.up_flash_a').data('adid');
+    var gameId = $('.up_flash_a').data('gameid');
+    var params = [10000, ucid, area, mac, adId, gameId, 1, 0].join(',');
+    upload(params);
+  }
+
   $('.num').text(_numTotal);
   _interval = setInterval(queueingArr, _sec * 1000);
 

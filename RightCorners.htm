@@ -75,8 +75,8 @@
         {{if list.length > 0}}
         <div class="my_img">
           {{each list obj i}}
-          <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self"  data-adid="{{obj.adId}}"  data-gameId="{{obj.gameId}}">
-            <img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" data-adId="{{obj.adId}}"  data-gameId="{{obj.gameId}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
+          <a class="up_a img_a img_a_{{i}}" href="{{obj.url}}" style="{{if i==0}} display: block; -webkit-animation: img_act 1s linear forwards;{{/if}}" target="_self"  data-adid="{{obj.adId}}"  data-gameid="{{obj.gameId}}">
+            <img class="up_img  img_{{i}}" src="{{obj.imgSrc}}" alt="{{obj.title}}" data-adid="{{obj.adId}}"  data-gameid="{{obj.gameId}}" width="{{imgConfig.width}}" height="{{imgConfig.height}}">
           </a>
           {{/each}}
           <div class="progress_bottom_win"></div>
@@ -129,7 +129,17 @@
   /* 参数结构备注
   var templateSource = {
     iframes: [{url: 'http://tou.junnew.com:8090/ViewHit/hitSimpleNew?bid=6102', width: 300, height: 200}, ...],
-    flashs: [{url: 'http://js.nmenu.net/html/upload/2017/04/16/201704161542400265.swf', width: 300, height: 200}, ...],
+    flashs: [{url: '', width: 300, height: 200}, ...],
+    flashs: [
+      {
+        url: 'http://js.nmenu.net/html/upload/2017/04/16/201704161542400265.swf',
+        adId: '', //广告id
+        gameId: '', //游戏id
+        clickUrl: '', //点击跳转地址
+        width: 358, //窗口宽度
+        height: 246 // 窗口高度
+      }，...
+    ],
     imgs: {
       width: 358,
       height: 346,
@@ -153,10 +163,10 @@
     iframes: [{url: 'http://tou.junnew.com:8090/ViewHit/hitSimpleNew?bid=6102', width: 358, height: 246}],
     flashs: [
       {
-        url: '../mediafiles/屠龙战记-358X246.swf',
-        adId: '09090',
-        gameId: '98089',
-        clickUrl: 'javascript:void(0);',
+        url: '',
+        adId: '',
+        gameId: '',
+        clickUrl: '',
         width: 358,
         height: 246
       }
@@ -175,6 +185,8 @@
         title: '光明重影'
       }, {
         url: '',
+        adId: '',
+        gameId: '',
         imgSrc: 'http://imgs.ali213.net/IndexTJ/2017/05/10/2017051032419689.jpg',
         title: '狙击手：幽灵战士3'
       }, {

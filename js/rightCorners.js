@@ -31,9 +31,7 @@ function init() {
       url: '',
       adId: '',
       gameId: '',
-      clickUrl: '',
-      width: 358,
-      height: 246
+      clickUrl: ''
     },
     list: []
   }
@@ -45,7 +43,7 @@ function init() {
       status = (templateSource.iframes && templateSource.iframes.length > 0);
       if (status) {
         var iIndex = Math.floor(Math.random() * templateSource.iframes.length);
-        tSource.iframe.url = templateSource.iframes[iIndex].url;
+        tSource.iframe = templateSource.iframes[iIndex];
         var iWidth = templateSource.iframes[iIndex].width;
         var iHeight = templateSource.iframes[iIndex].height;
         $('#k').val(iWidth+','+ iHeight);
