@@ -1,4 +1,5 @@
 var _class = decodeURI(getParams("class"));
+var _size = decodeURI(getParams("size"));
 
 $(document).ready(function() {
   init();
@@ -22,8 +23,13 @@ function init() {
   }
   $.each(source, function(i, o) {
     if (o.type == _class) {
-      tsource.flash = o.flash;
-      tsource.img = o.img;
+      if (o.flash) {
+        tsource.flash.url = o.flash.urls[_size];
+        tsource.flash.clickUrl = o.flash.clickUrl;
+        tsource.flash.adId = o.flash.adId;
+        tsource.flash.gameId = o.flash.gameId;
+      }
+      if(o.img) tsource.img = o.img ;
     }
   })
   var html = template('flash_template', tsource);
