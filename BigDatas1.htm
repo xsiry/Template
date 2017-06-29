@@ -35,9 +35,9 @@
     <script id="banner_template" type="text/html">
       <div class="banner_list">
         {{each list ban i}}
-        <a class="up_a" href="{{ban.url}}" target="_self" adId="{{ban.adId}}"  gameId="{{ban.gameId}}">
+        <a class="up_a" href="{{ban.url}}" target="_self" data-adid="{{ban.adId}}"  data-gameid="{{ban.gameId}}">
           <div class="banner_block {{if i==0}}first_block{{/if}}">
-            <img class="up_img" src="{{ban.imgSrc}}" alt="{{ban.title}}"  adId="{{ban.adId}}"  gameId="{{ban.gameId}}"> {{if ban.hot}}
+            <img class="up_img" src="{{ban.imgSrc}}" alt="{{ban.title}}"  data-adid="{{ban.adId}}"  data-gameid="{{ban.gameId}}"> {{if ban.hot}}
             <div class="tag"></div>
             {{/if}}
             <div class="bottom_title">{{ban.title}}</div>
@@ -205,7 +205,7 @@
     }]
   }];
   </script>
-  <script type="text/javascript" src="../js/upload.js"></script>
+  <script type="text/javascript" src="js/upload.js"></script>
   <script type="text/javascript" src="js/bigDatas1.js"></script>
 </body>
 
